@@ -1,32 +1,33 @@
-angular.module('HairSmoothieBar.controllers', ['ngResource', 'ngRoute'])
+angular.module('HairSmoothieBar.controllers', [])
 
-app.controller('BlogController', [])
-
-
-app.controller('AppopintmentsController', [])
+    .controller('BlogController', [])
 
 
-app.controller('CheckoutController', []) 
+    .controller('AppopintmentsController', [])
 
-app.controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
-    $scope.products = Products.query();
+
+    .controller('CheckoutController', [])
+
+    .controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
+        $scope.products = Products.query();
+    }])
+
+    .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', function ($scope, $location, $routeParams, Products) {
+        Products.get({ id: $routeParams.id }, function (success) {
+            $scope.product = success;
+        }, function (err) {
+            console.log(err);
+        })
 }])
 
-app.controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', function ($scope, $location, $routeParams, Products) {
-    $scope.product = Products.get({ id: $routeParams.id }, function (success) {
-        $scope.product = success;
-});
+    .controller('ServicesController', ['$scope', '$location', 'Service', function ($scope, $location, Service) {
 
-app.controller('ServicesController', ['$scope', '$location', 'Service', function ($scope, $location, Service) {
+        $scope.service = Services.query();
+    }]);
 
-    $scope.service = Services.query();
-}]);
+// app
+// $scope.service = Service.get({ id: $routeParams.id }, function (success) {
+//     $scope.service = success;
+// });
 
-app.controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Service', function ($scope, $location, $routeParams, Service) {
-
-    $scope.service = Service.get({ id: $routeParams.id }, function (success) {
-        $scope.service = success;
-    });
-
-}]);
-}]);
+// }
