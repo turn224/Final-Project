@@ -1,5 +1,6 @@
 var db = require("../config/db");
 
+
 //GET ALL THE PRODUCTS FROM THE DATABASE
 exports.all = function () {
     return db.rows('GetAllProducts()', []);
@@ -8,3 +9,8 @@ exports.all = function () {
 exports.read = function (id) {
     return db.row('GetSingleProduct(?)', [id]);
 }
+
+exports.all = function() {
+    return db.rows("GetAllProducts()", []);
+};
+
