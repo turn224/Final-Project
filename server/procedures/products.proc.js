@@ -9,8 +9,3 @@ exports.all = function () {
 exports.read = function (id) {
     return db.row('GetSingleProduct(?)', [id]);
 }
-
-exports.all = function() {
-    return db.rows("GetAllProducts()", []);
-};
-
