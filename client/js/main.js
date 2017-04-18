@@ -29,6 +29,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'views/blog.html',
             //    controller: 'BlogController'
         })
+        .when('/compose', {
+            templateUrl: 'views/compose.html',
+            // controller: 'ComposeController'
+        })
         .when('/checkout', {
             templateUrl: 'views/checkout.html',
             //    controller: 'CheckoutController'
