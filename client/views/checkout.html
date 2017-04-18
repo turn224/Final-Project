@@ -1,0 +1,141 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+
+  
+                <!--<li ng-repeat="cart in carts">
+                  <span class="item">
+                  <span class="item-left">
+                    <img class="cartImage" src="{{cart.imageurl}}">
+                    <span class="item-info">
+                      <span>{{cart.title}}</span>
+                  <span>${{cart.price}}</span>
+                  </span>
+                  </span>
+                  <span class="item-right">
+                    <button class="btn btn-xs btn-danger pull-right" ng-click="deleteCart()">x</button>
+                  </span>
+                  <div id="cart">
+                    <a href=""><span class="glyphicon glyphicon-shopping-cart"></span>
+                    </div>
+                    </span>
+                    </li>  ng-repeat stop -->
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+
+      </nav>
+
+    </div>
+        </div>
+        <form class="form-inline">
+            <div class="form-group">
+                <span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Email: 
+                <label class="sr-only" for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+        </form>
+            <br>
+        <form class="form-inline">
+            <div class="form-group">
+                <span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Name:
+                <label class="sr-only" for="firstname">First</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="First">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="lastname">Last</label>
+                <input type="text" class="form-control" id="lastname" placeholder="Last">
+            </div>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                contact:
+                <label class="sr-only" for="company">Company</label>
+                <input type="text" class="form-control" id="inputCompany" placeholder="Company (optional)">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="phone">Phone</label>
+                <input type="number" class="form-control" id="phone" placeholder="phone (optional)" maxlength="10" minlength="7">
+            </div>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                Address:
+                <label class="sr-only" for="Address1">Address1</label>
+                <input type="text" class="form-control" id="address1" placeholder="Address1">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="Address2">Address2</label>
+                <input type="text" class="form-control" id="address2" placeholder="Address2 (optional)">
+            </div>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                Region:
+                <label class="sr-only" for="City">City</label>
+                <input type="text" class="form-control" id="city" placeholder="City">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="State">State</label>
+                <input type="text" class="form-control" id="state" placeholder="State">
+            </div>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                Origin:
+                <label class="sr-only" for="Zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="Zip">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="Country">Country</label>
+                <input type="text" class="form-control" id="Country" placeholder="Country">
+            </div>
+        </form>
+    </div>
+    <footer>
+        <h4><span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Submit to complete your order</h4>
+        <form class="form-inline">
+            <div class="form-group">
+                
+                Card Number:
+                <label class="sr-only" for="inputCardNum">Card Number</label>
+                <input type="number" class="form-control" id="inputCardNum" placeholder="Card Number"
+                    ng-model="cardNumber" maxlength="16" minlength="16">
+
+                CVC: 
+                <label class="sr-only" for="inputCVC">CVC</label>
+                <input type="number" class="form-control smallInput" id="inputCVC" placeholder="CVC Number"
+                    ng-model="cvc" maxlength="3" minlength="3">
+            </div>
+        </form>
+            <br>
+        <form class="form-inline">
+            <div class="form-group">
+            <!--EXP MONTH: <input type="number" ng-model="expMonth" maxlength="2">
+            EXP YEAR: <input type="number" ng-model="expYear" maxlength="2">-->
+                Expiration Month:
+                <label class="sr-only" for="inputExpMonth">Month</label>
+                <input type="number" class="form-control mediumInput" id="inputExpMonth" placeholder="Month"
+                    ng-model="expMonth" maxlength="2" minlength="2">
+
+                Expiration Year: 
+                <label class="sr-only" for="inputExpYear">Year</label>
+                <input type="number" class="form-control mediumInput" id="inputExpYear" placeholder="Year"
+                    ng-model="expYear" maxlength="2" minlength="2">
+            </div>
+        </form>
+            <br>
+        <form class="form-inline">
+            <div class="form-group">
+            <!--Billing Zip: <input type="number" ng-model="Zip Code" maxlength="5" minlength="5">-->
+                Billing Zip:
+                <label class="sr-only" for="inputBillingZip">Zip</label>
+                <input type="number" class="form-control mediumInput" id="inputBillingZip" placeholder="Zip"
+                    ng-model="zipCode" maxlength="5" minlength="5">
+            </div>
+        </form>
+            <br>
+        <button type="Submit Order" class="btn btn-primary" ng-click="processPayment()">Submit Order</button>
+    </footer>
+</div>
