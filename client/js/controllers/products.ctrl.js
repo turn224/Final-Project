@@ -1,7 +1,7 @@
 var app = angular.module('HairSmoothieBar.controllers', []);
 
 
-app.controller('ProductsController', ['$scope', '$location', 'Product', function ($scope, $location, Product) {
+app.controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
 
     $scope.product = Products.query();
 
@@ -9,10 +9,10 @@ app.controller('ProductsController', ['$scope', '$location', 'Product', function
 
 }]);
 
-app.controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Product', function ($scope, $location, $routeParams, Product) {
+app.controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Product', function ($scope, $location, $routeParams, Products) {
 
-    $scope.product = Product.get({ id: $routeParams.id }, function (success) {
-        $scope.product = success;
+    $scope.product = Products.get({ id: $routeParams.id }, function (success) {
+        $scope.products = success;
     });
 
 }]);

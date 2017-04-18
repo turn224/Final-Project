@@ -1,5 +1,5 @@
 angular.module('HairSmoothieBar.factories', [])
-    .factory('Product', ['$resource', function($resource) {
+    .factory('Products', ['$resource', function($resource) {
         return $resource('api/products/:id', { id: '@id' }, {
         });
     }])
