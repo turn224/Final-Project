@@ -23,7 +23,7 @@ router.post('/login', function (req, res, next) {
             }
         });
     })(req, res, next);
-})
+});
 router.get('/logout', function (req, res) {
     req.session.destroy(function () {
         req.logOut();
@@ -57,22 +57,13 @@ router.get('/:id', auth.isAdmin, function (req, res) {
     }
 });
 router.put('/:id', auth.isAdmin, function (req, res) {
-    return procedures.update(req.body.firstname, req.body.lastname, req.body.email, req.body.phone.req.params.id)
+    return procedures.update(req.body, req.params.id)
         .then(function (success) {
             res.sendStatus(204);
         }, function (err) {
             console.log(err);
             res.status(500).send(err);
         });
-});
-router.delete('/:id', auth.isAdmin, function (req, res) {
-    return procedures.destroy(req.params.id)
-        .then(function () {
-            res.sendStatus(201);
-        }, function (err) {
-            console.log(err);
-            res.status(500).send(err);
-        })
 });
 router.get('/me', function (req, res) {
     res.send(req.user);
