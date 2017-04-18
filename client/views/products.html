@@ -8,11 +8,11 @@
 <div class="row">
   <div class="col-sm-6 col-md-4" ng-repeat="product in products">
     <div class="thumbnail">
-            <a ng-href="/products/{{products.idProducts}}">
+            <a ng-href="/products/{{products.idProduct}}">
       <img ng-src="{{product.productImg}}" alt="Test">
       </a>
       <div class="caption">
-        <h4>{{products.productName}} {{products.productPrice | currency}}</h4>
+        <h4>{{product.productName}} {{product.productPrice | currency}}</h4>
       </div>
     </div>
   </div>
