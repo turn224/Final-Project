@@ -1,4 +1,6 @@
 angular.module('HairSmoothieBar.factories', [])
+
+
     .factory('Products', ['$resource', function($resource) {
         return $resource('api/products/:id', { id: '@id' }, {
         });
