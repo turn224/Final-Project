@@ -1,9 +1,12 @@
 <!doctype html>
-<html ng-app="HairSmoothieBar">
+<html lang="en" ng-app="HairSmoothieBar">
 
 <head>
     <base href="/">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-route.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-resource.js'></script>
@@ -25,16 +28,51 @@
     <meta property="twitter:description " content="{{ seo.description }}">
 
 
-    <link rel="stylesheet" href="css/styles.css ">
-    <script src="js/controllers.js "></script>
-    <script src="js/factories.js "></script>
-    <script src="js/services.js "></script>
-    <script src="js/main.js "></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/controllers/blog.controller.js"></script>
+    <script src="js/controllers/products.ctrl.js"></script>
+    <script src="js/controllers/services.ctrl.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/main.js"></script>
 
 </head>
 
 <body>
-    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/#/home/">
+                    <img class="image1" src="../resources/logo.svg">
+                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar, #anotherID, #myUl" aria-expanded="false">
+                        
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="anotherID">
+                <div id="myNavbar"></div>
+                <ul id="myUl" class="nav navbar-nav navbar-right links">
+                    <li>
+                        <a href="https://www.facebook.com">
+                            <div class="facebook page-scroll img-responsive"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com">
+                            <img class="twitter page-scroll" src="../resources/twitter-grey.svg" class="img-responsive">
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="title"> Hair Smoothie Bar </h3>
+            </div>
+        </div>
+    </nav>
     <div ng-view></div>
 </body>
 
