@@ -6,7 +6,7 @@ app.controller('BlogController', [])
 app.controller('AppopintmentsController', [])
 
 
-app.controller('CheckoutController', [])
+app.controller('CheckoutController', []) 
 
 app.controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
     $scope.products = Products.query();
