@@ -1,14 +1,15 @@
 <div class="row">
     <div class="col-lg-12">
-<img src="https://s-media-cache-ak0.pinimg.com/originals/74/27/b8/7427b8d3a7b94e6f23a7604bcea37b9a.jpg" alt="Welcome to Hair Smoothie Bar!">
+<img src="images/Fruits-Veggies-Horizontal1.jpg" id="products" class="img-responsive center-block" alt="Welcome to the products page!">
     </div>
   </div>
+
 
 <div class="container">
 <div class="row">
   <div class="col-sm-6 col-md-4" ng-repeat="product in products">
     <div class="thumbnail">
-            <a ng-href="/products/{{products.idProduct}}">
+            <a ng-href="/products/{{product.idProducts}}">
       <img ng-src="{{product.productImg}}" alt="Test">
       </a>
       <div class="caption">
