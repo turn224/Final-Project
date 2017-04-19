@@ -31,7 +31,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/compose', {
             templateUrl: 'views/compose.html',
-            // controller: 'ComposeController'
+            controller: 'ComposeController'
         })
         .when('/checkout', {
             templateUrl: 'views/checkout.html',
