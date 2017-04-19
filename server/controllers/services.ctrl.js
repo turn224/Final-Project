@@ -13,4 +13,14 @@ router.route('/')
                 res.status(500).send(err);
             });
     });
+router.route("/:id")
+    .get(function (req, res) {
+        return procedures.read(req.params.id)
+            .then(function (success) {
+                res.send(success);
+            }, function (err) {
+                console.log(err);
+                res.status(500).send(err);
+            })
+    });
 module.exports = router;
