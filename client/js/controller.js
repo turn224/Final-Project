@@ -20,14 +20,17 @@ angular.module('HairSmoothieBar.controllers', [])
         })
 }])
 
-    .controller('ServicesController', ['$scope', '$location', 'Service', function ($scope, $location, Service) {
+    .controller('ServicesController', ['$scope', '$location', 'Services', function ($scope, $location, Services) {
 
-        $scope.service = Services.query();
-    }]);
+        $scope.services = Services.query();
+    }])
+    
+    .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', function ($scope, $location, $routeParams, Services) {
+        Services.get({ id: $routeParams.id }, function (success) {
+            $scope.service = success;
+        }, function (err) {
+            console.log(err);
+        })
+}])
 
-// app
-// $scope.service = Service.get({ id: $routeParams.id }, function (success) {
-//     $scope.service = success;
-// });
 
-// }
