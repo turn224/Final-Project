@@ -1,8 +1,117 @@
-
- 
-.col-lg-6{text-align:left}#price{color:#00A5b6;font-weight:bold}#title{font-weight:bold}#detailbox{margin:80px}#button{background-color:#00A5b6;border-radius:5px;border:none;color:white}#button{background-color:#E7B72B;border-radius:5px;border:none;color:white}#price{color:#00A5b6;font-weight:bold}#detailbox{padding-top:3cm}#detailbox{padding-top:3cm}.navbar{height:8em;margin-bottom:0;background-color:white}.navbar .nav.navbar-nav.navbar-right li a{color:#E7B72B}.navbar .image1{height:7em;width:10em}.navbar .navbar-default{-webkit-transition:all 0.35s;-moz-transition:all 0.35s;transition:all 0.35s;background-color:white}.navbar .links{background-color:#03A5BA;height:7.9em;float:left}.navbar .words{font-family:'Work Sans', sans-serif;font-weight:600;color:white;height:7.9em}.navbar img{height:4em;width:15em;background-size:auto;background-repeat:no-repeat;margin-top:0.5em;line-height:8em}.navbar .facebook{background-image:url('/images/fb-grey.svg');height:2em;width:3em;margin-top:2.5em;background-repeat:no-repeat}.navbar .instagram{background-image:url('/images/insta-grey.svg');height:2em;width:3em;background-size:auto;background-repeat:no-repeat;margin-top:2.5em;vertical-align:middle}.navbar ul{list-style-type:none}.navbar ul li{margin-left:1.5em;margin-right:1.5em;text-align:center}.navbar ul li a{line-height:8em;padding:0}
-.col-lg-6{text-align:left}#price{color:#00A5b6;font-weight:bold}#title{font-weight:bold}#detailbox{margin:80px}#button{background-color:#00A5b6;border-radius:5px;border:none;color:white}#button{background-color:#00A5b6;border-radius:5px;border:none;color:white}body{margin-top:9em}.navbar{height:8em;margin-bottom:0;background-color:white}.navbar .nav.navbar-nav.navbar-right li a{color:#E7B72B}.navbar .image1{height:7em;width:10em}.navbar .navbar-default{-webkit-transition:all 0.35s;-moz-transition:all 0.35s;transition:all 0.35s;background-color:white}.navbar .links{background-color:#03A5BA;height:7.9em;float:left}.navbar .words{font-family:'Work Sans', sans-serif;font-weight:600;color:white;height:7.9em}.navbar img{height:4em;width:15em;background-size:auto;background-repeat:no-repeat;margin-top:0.5em;line-height:8em}.navbar .facebook{background-image:url('/images/fb-grey.svg');height:2em;width:3em;margin-top:2.5em;background-repeat:no-repeat}.navbar .instagram{background-image:url('/images/insta-grey.svg');height:2em;width:3em;background-size:auto;background-repeat:no-repeat;margin-top:2.5em;vertical-align:middle}.navbar ul{list-style-type:none}.navbar ul li{margin-left:1.5em;margin-right:1.5em;text-align:center}.navbar ul li a{line-height:8em;padding:0}
-
-
-.col-lg-6{text-align:left}#price{color:#00A5b6;font-weight:bold}#title{font-weight:bold}#detailbox{margin:80px}#button{background-color:#00A5b6;border-radius:5px;border:none;color:white}#button{background-color:#00A5b6;border-radius:5px;border:none;color:white}body{margin-top:9em}.navbar{height:8em;margin-bottom:0;background-color:white}.navbar .nav.navbar-nav.navbar-right li a{color:#E7B72B}.navbar .image1{height:7em;width:10em}.navbar .navbar-default{-webkit-transition:all 0.35s;-moz-transition:all 0.35s;transition:all 0.35s;background-color:white}.navbar .links{background-color:#03A5BA;height:7.9em;float:left}.navbar .words{font-family:'Work Sans', sans-serif;font-weight:600;color:white;height:7.9em}.navbar img{height:4em;width:15em;background-size:auto;background-repeat:no-repeat;margin-top:0.5em;line-height:8em}.navbar .facebook{background-image:url('/images/fb-grey.svg');height:2em;width:3em;margin-top:2.5em;background-repeat:no-repeat}.navbar .instagram{background-image:url('/images/insta-grey.svg');height:2em;width:3em;background-size:auto;background-repeat:no-repeat;margin-top:2.5em;vertical-align:middle}.navbar ul{list-style-type:none}.navbar ul li{margin-left:1.5em;margin-right:1.5em;text-align:center}.navbar ul li a{line-height:8em;padding:0}
-
+.col-lg-6 {
+  text-align: left;
+}
+#price {
+  color: #00A5b6;
+  font-weight: bold;
+}
+#title {
+  font-weight: bold;
+}
+#detailbox {
+  margin: 80px;
+}
+#button {
+  background-color: #00A5b6;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+.welcome {
+  background-image: url(../images/glowing-green-smoothies.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#welcome-desc {
+  text-align: center;
+}
+#button {
+  background-color: #E7B72B;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+#price {
+  color: #00A5b6;
+  font-weight: bold;
+}
+#detailbox {
+  padding-top: 3cm;
+}
+#detailbox {
+  padding-top: 3cm;
+}
+body {
+  margin-top: 9em;
+}
+.navbar {
+  height: 8em;
+  margin-bottom: 0;
+  background-color: white;
+}
+.navbar .nav.navbar-nav.navbar-right li a {
+  color: #E7B72B;
+}
+.navbar .image1 {
+  height: 7em;
+  width: 10em;
+}
+.navbar .navbar-default {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  background-color: white;
+}
+.navbar .links {
+  background-color: #03A5BA;
+  height: 7.9em;
+  float: left;
+}
+.navbar .words {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  color: white;
+  height: 7.9em;
+}
+.navbar img {
+  height: 4em;
+  width: 15em;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 0.5em;
+  line-height: 8em;
+}
+.navbar .facebook {
+  background-image: url('/images/fb-grey.svg');
+  height: 2em;
+  width: 3em;
+  margin-top: 2.5em;
+  background-repeat: no-repeat;
+}
+.navbar .instagram {
+  background-image: url('/images/insta-grey.svg');
+  height: 2em;
+  width: 3em;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 2.5em;
+  vertical-align: middle;
+}
+.navbar ul {
+  list-style-type: none;
+}
+.navbar ul li {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  text-align: center;
+}
+.navbar ul li a {
+  line-height: 8em;
+  padding: 0;
+}
