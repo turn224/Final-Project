@@ -4,7 +4,7 @@ var services = require('./controllers/services.ctrl');
 var hairstyles = require('./controllers/hairstyles.ctrl');
 var customers = require('./controllers/customers.ctrl');
 var purchases = require('./controllers/purchases.ctrl');
-var blog = require('./controllers/blog.ctrl');
+var blog = require('./controllers/blogs.ctrl');
 
 
 var router = express.Router();
