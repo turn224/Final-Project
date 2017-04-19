@@ -1,13 +1,14 @@
-<div  id="box" class='container'>
+<div  id="detailbox" class='container'>
 <div class='row'>
  <div class='col-sm-6'>
-       <img ng-src='{{service.imageurl}}' alt='Test'>
+       <img ng-src='{{service.serviceImg}}' alt='Test'>
  </div>
  <div  class='col-sm-6'>
-    <h4 id='price'>{{service.price | currency}}</h4>
-    <h4>{{service.name}}</h4>
-   <p>{{service.description}}</p>
+    <h4 id='price'>{{service.servicePrice | currency}}</h4>
+    <h4>{{service.serviceName}}</h4>
+   <p>{{service.serviceDesc}}</p>
  </div>
-<button id="button" href="/#!/appointments">Book Appointment</button>
+<button id="button" href="/client/views/appointments">Book Appointment</button>
 </div>
 </div>
+
