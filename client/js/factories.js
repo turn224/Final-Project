@@ -14,3 +14,4 @@ angular.module('HairSmoothieBar.factories', [])
             'update': { method: 'PUT' }
         })
     }]);
+        
