@@ -2,6 +2,15 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('BlogController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
         $scope.blogposts = Blog.query();
+        console.log($scope.blogposts);
+
+        $scope.goToNewPost = function() {
+            $location.path('/compose');
+        }
+
+        $scope.goToSinglePost = function(id) {
+            $location.path('/blog/' + id);
+        }
     }])
 
     .controller('ComposeController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
@@ -10,14 +19,21 @@ angular.module('HairSmoothieBar.controllers', [])
                 var newPost = new Blog({
                     title: $scope.title,
                     content: $scope.content,
-                    
                 });
                 newPost.$save(function (success) {
-                    console.log(success);
-                    console.log('it worked');
-                    // $location.path('/');
+                    $location.path('/blog');
                 });
             }
+    }])
+
+    .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', function($scope, Blog, $location, $routeParams) {
+        var id = $routeParams.id;
+
+        Blog.get({ id:$routeParams.id}, function(success) {
+            $scope.singleblog = success;
+            console.log($scope.singleblog);
+        })
+
     }])
 
 
