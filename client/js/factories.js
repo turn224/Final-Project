@@ -5,13 +5,15 @@ angular.module('HairSmoothieBar.factories', [])
         return $resource('api/products/:id', { id: '@id' }, {
         });
     }])
+
     .factory('Services', ['$resource', function($resource) {
         return $resource('api/services/:id', { id: '@id' }, {
         });
     }])
     .factory('Blog', ['$resource', function($resource) {
-        return $resource('api/blog/:id', { id: '@id' }, {
-            'update': { method: 'PUT' }
+        return $resource('/api/blog/:id', { id: '@id' }, {
+            'update': { method: 'PUT' },
+            'post': { method: 'POST' }
         })
     }]);
         
