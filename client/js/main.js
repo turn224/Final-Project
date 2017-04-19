@@ -41,6 +41,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'views/developers.html',
             //    controller: 'DevelopersController'
         })
+        .when('/blog/:id', {
+            templateUrl: 'views/singleblog.html',
+            controller: 'SingleBlogController'
+        })
         .when('/services/:id', {
             templateUrl: 'views/service-detail.html',
             controller: 'ServiceDetailController'
