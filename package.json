@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Group2 Final Project",
   "main": "server/index.js",
-  "scripts": {
+  "scripts": { 
+    "start": "node server/index.js",
     "test": "source .variables && nodemon"
   },
   "repository": {
