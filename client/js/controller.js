@@ -1,7 +1,6 @@
 angular.module('HairSmoothieBar.controllers', [])
 
     .controller('BlogController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
-        console.log('hello');
         $scope.blogposts = Blog.query();
     }])
 
