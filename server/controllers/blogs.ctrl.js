@@ -16,7 +16,7 @@ router.route('/')
             });
     })
     .post(function (req, res) {
-        return procedures.post(req.body)
+        return procedures.post(req.body.title, req.body.content)
             .then(function (success) {
                 res.status(201).send(success);
             }, function (err) {
