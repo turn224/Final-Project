@@ -4,3 +4,8 @@ var db = require("../config/db");
 exports.all = function () {
     return db.rows('GetAllServices()', []);
 }
+
+//GET ALL THE SINGLE SERVICE FROM THE DATABASE
+exports.read = function (id) {
+    return db.row('GetSingleService(?)', [id]);
+}
