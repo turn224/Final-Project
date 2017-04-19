@@ -10,114 +10,91 @@
 
 
 
-        <form class="form-inline">
-            <div class="form-group">
-                <span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Email: 
-                <label class="sr-only" for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-        </form>
-            <br>
-        <form class="form-inline">
-            <div class="form-group">
-                <span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Name:
-                <label class="sr-only" for="firstname">First</label>
-                <input type="text" class="form-control" id="inputEmail" placeholder="First">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="lastname">Last</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Last">
-            </div>
-        </form>
-        <form class="form-inline">
-            <div class="form-group">
-                contact:
-                <label class="sr-only" for="company">Company</label>
-                <input type="text" class="form-control" id="inputCompany" placeholder="Company (optional)">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="phone">Phone</label>
-                <input type="number" class="form-control" id="phone" placeholder="phone (optional)" maxlength="10" minlength="7">
-            </div>
-        </form>
-        <form class="form-inline">
-            <div class="form-group">
-                Address:
-                <label class="sr-only" for="Address1">Address1</label>
-                <input type="text" class="form-control" id="address1" placeholder="Address1">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="Address2">Address2</label>
-                <input type="text" class="form-control" id="address2" placeholder="Address2 (optional)">
-            </div>
-        </form>
-        <form class="form-inline">
-            <div class="form-group">
-                Region:
-                <label class="sr-only" for="City">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="State">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State">
-            </div>
-        </form>
-        <form class="form-inline">
-            <div class="form-group">
-                Origin:
-                <label class="sr-only" for="Zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="Country">Country</label>
-                <input type="text" class="form-control" id="Country" placeholder="Country">
-            </div>
-        </form>
+        <div class="container">
+    <div class="row">
+        <!-- You can make it whatever width you want. I'm making it full width
+             on <= small devices and 4/12 page width on >= medium devices -->
+        <div class="col-xs-12 col-md-4">
+        
+        
+            <!-- CREDIT CARD FORM STARTS HERE -->
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading display-table" >
+                    <div class="row display-tr" >
+                        <h3 class="panel-title display-td" >Payment Details</h3>
+                        <div class="display-td" >                            
+                            <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="tel"
+                                            class="form-control"
+                                            name="cardNumber"
+                                            placeholder="Valid Card Number"
+                                            autocomplete="cc-number"
+                                            required autofocus 
+                                        />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        name="cardExpiry"
+                                        placeholder="MM / YY"
+                                        autocomplete="cc-exp"
+                                        required 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cardCVC">CV CODE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control"
+                                        name="cardCVC"
+                                        placeholder="CVC"
+                                        autocomplete="cc-csc"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="subscribe btn btn-success btn-lg btn-block" type="button">Complete Payment</button>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+            <!-- CREDIT CARD FORM ENDS HERE -->
+            
+            
+        </div>            
+        
+        
+        
     </div>
-    <footer>
-        <h4><span class="glyphicon glyphicon-info-sign infoCircle" aria-hidden="true"></span>Submit to complete your order</h4>
-        <form class="form-inline">
-            <div class="form-group">
-                
-                Card Number:
-                <label class="sr-only" for="inputCardNum">Card Number</label>
-                <input type="number" class="form-control" id="inputCardNum" placeholder="Card Number"
-                    ng-model="cardNumber" maxlength="16" minlength="16">
-
-                CVC: 
-                <label class="sr-only" for="inputCVC">CVC</label>
-                <input type="number" class="form-control smallInput" id="inputCVC" placeholder="CVC Number"
-                    ng-model="cvc" maxlength="3" minlength="3">
-            </div>
-        </form>
-            <br>
-        <form class="form-inline">
-            <div class="form-group">
-            <!--EXP MONTH: <input type="number" ng-model="expMonth" maxlength="2">
-            EXP YEAR: <input type="number" ng-model="expYear" maxlength="2">-->
-                Expiration Month:
-                <label class="sr-only" for="inputExpMonth">Month</label>
-                <input type="number" class="form-control mediumInput" id="inputExpMonth" placeholder="Month"
-                    ng-model="expMonth" maxlength="2" minlength="2">
-
-                Expiration Year: 
-                <label class="sr-only" for="inputExpYear">Year</label>
-                <input type="number" class="form-control mediumInput" id="inputExpYear" placeholder="Year"
-                    ng-model="expYear" maxlength="2" minlength="2">
-            </div>
-        </form>
-            <br>
-        <form class="form-inline">
-            <div class="form-group">
-            <!--Billing Zip: <input type="number" ng-model="Zip Code" maxlength="5" minlength="5">-->
-                Billing Zip:
-                <label class="sr-only" for="inputBillingZip">Zip</label>
-                <input type="number" class="form-control mediumInput" id="inputBillingZip" placeholder="Zip"
-                    ng-model="zipCode" maxlength="5" minlength="5">
-            </div>
-        </form>
-            <br>
-        <button type="Submit Order" class="btn btn-primary" ng-click="processPayment()">Submit Order</button>
-    </footer>
 </div>
-
