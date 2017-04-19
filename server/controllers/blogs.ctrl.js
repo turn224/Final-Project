@@ -15,7 +15,7 @@ router.route('/')
                 res.status(500).send(err);
             });
     })
-    .post(auth.isAdmin, function (req, res) {
+    .post(function (req, res) {
         return procedures.post(req.body)
             .then(function (success) {
                 res.status(201).send(success);

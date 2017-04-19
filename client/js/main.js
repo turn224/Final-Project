@@ -27,7 +27,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/blog', {
             templateUrl: 'views/blog.html',
-            //    controller: 'BlogController'
+               controller: 'BlogController'
         })
         .when('/compose', {
             templateUrl: 'views/compose.html',

@@ -24,7 +24,6 @@
 					<div class="banana-body">
 						<div class="blog-background">
 							<h1> {{ blog.title }}</h1>
-							<h3> {{ blog.author }}</h3>
 							<p> {{ blog.content | limitTo: 30 }}...</p>
 							<h6> {{ blog.createdAt | date: 'short' }}</h6>
 							<div class="the-buttons">

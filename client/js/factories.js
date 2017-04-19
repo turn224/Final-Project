@@ -6,11 +6,11 @@ angular.module('HairSmoothieBar.factories', [])
         });
     }])
     .factory('Service', ['$resource', function($resource) {
-        return $resource('api/sevices/:id', { id: '@id' }, {
+        return $resource('api/services/:id', { id: '@id' }, {
         });
     }])
     .factory('Blog', ['$resource', function($resource) {
-        return $resource('api/blog/:id', { id: '@id' }, {
+        return $resource('/api/blog/:id', { id: '@id' }, {
             'update': { method: 'PUT' },
             'post': { method: 'POST' }
         })

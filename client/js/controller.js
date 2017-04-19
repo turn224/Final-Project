@@ -1,6 +1,9 @@
 angular.module('HairSmoothieBar.controllers', [])
 
-    .controller('BlogController', [])
+    .controller('BlogController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
+        console.log('hello');
+        $scope.blogposts = Blog.query();
+    }])
 
     .controller('ComposeController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
 
