@@ -7,5 +7,5 @@ exports.read = function(id){
     return db.row('GetSingleBlog(?)', [id]);
 }
 exports.post = function (title, content) {
-    return db.empty("AddBlog(?,?,?,?)", [title, content]);
+    return db.empty("AddBlog(?,?)", [title, content]);
 }
