@@ -16,12 +16,12 @@
   margin-top: 15em;
 }
 #welcome-desc {
-  text-shadow: -1px -1px 0 #03A5BA, 1px -1px 0 #03A5BA, -1px 1px 0 #03A5BA, 1px 1px 0 #03A5BA;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   padding-top: 5em;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 10px;
-  color: white;
+  color: #E7B72B;
   font-weight: bold;
 }
 #welcome-logo {
@@ -31,6 +31,6 @@
   margin-top: 3em;
 }
 .btn {
-  background-color: #03A5BA;
-  color: white;
+  background-color: #E7B72B;
+  color: black;
 }
