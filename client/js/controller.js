@@ -40,7 +40,7 @@ angular.module('HairSmoothieBar.controllers', [])
         })
 
     }])
-
+    
     .controller('CheckoutController', [])
 
     .controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
