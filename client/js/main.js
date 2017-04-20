@@ -23,7 +23,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/about', {
             templateUrl: 'views/about.html',
-            //    controller: 'AboutController'
+            controller: 'AboutController'
         })
         .when('/appointments', {
             templateUrl: 'views/appointments.html',
@@ -31,7 +31,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/blog', {
             templateUrl: 'views/blog.html',
-               controller: 'BlogController'
+            controller: 'BlogController'
         })
         .when('/compose', {
             templateUrl: 'views/compose.html',
