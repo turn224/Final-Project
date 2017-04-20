@@ -37,7 +37,7 @@ angular.module('HairSmoothieBar.controllers', [])
     }])
 
 
-    .controller('AppopintmentsController', [])
+    .controller('AppointmentsController', [])
 
 
     .controller('CheckoutController', [])
