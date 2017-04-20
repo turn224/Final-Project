@@ -12,8 +12,8 @@ exports.read = function(id){
 exports.update = function (firstname, lastname, email, phone, id) {
     return db.empty("UpdateCustomer(?,?,?,?)", [firstname, lastname, email, phone, id]);
 }
-exports.post = function (u, hash) {
-    return db.empty("AddUser(?,?,?,?)", [u.firstname, u.lastname, u.email, u.phone, hash]);
+exports.post = function (u) {
+    return db.empty("AddCustomer(?,?,?,?)", [u.firstname, u.lastname, u.fromEmail, u.phone]);
 }
 exports.destroy = function (id) {
     return db.empty("DeleteCustomer(?)", [id]);

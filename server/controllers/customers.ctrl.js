@@ -39,15 +39,13 @@ router.get('/', auth.isAdmin, function (req, res) {
 });
 router.post('/', function (req, res) {
     var u = req.body;
-    utils.encryptPassword(u.password).then(function (hash) {
-        return procedures.post(u, hash)
-            .then(function (id) {
-                res.send(id);
-            }, function (err) {
-                console.log(err);
-                res.status(500).send(err);
-            });
-    });
+    return procedures.post(u)
+        .then(function (success) {
+            res.sendStatus(204);
+        }, function (err) {
+            console.log(err);
+            res.status(500).send(err);
+        });
 });
 router.get('/:id', auth.isAdmin, function (req, res) {
     return procedures.read(req.params.id).then(function (user) {
