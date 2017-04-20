@@ -17,6 +17,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'views/products.html',
             controller: 'ProductsController'
         })
+        .when('/mailing', {
+            templateUrl: 'views/mailing.html',
+            controller: 'MailingController'
+        })
         .when('/about', {
             templateUrl: 'views/about.html',
             //    controller: 'AboutController'
