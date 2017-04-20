@@ -15,5 +15,11 @@ angular.module('HairSmoothieBar.factories', [])
             'update': { method: 'PUT' },
             'post': { method: 'POST' }
         })
-    }]);
+    }])
+    .factory('Customers', ['$resource', function($resource){
+        return $resource('/api/customers/:id', { id: '@id' }, {
+            'update': { method: 'PUT' },
+            'post': { method: 'POST' }
+        })
+    }])
         
