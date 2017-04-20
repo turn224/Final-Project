@@ -41,6 +41,14 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'views/developers.html',
             //    controller: 'DevelopersController'
         })
+        .when('/login', {
+            templateUrl: 'views/login.html',
+            // controller: 'LoginController'
+        })
+        .when('/admin', {
+            templateUrl: 'views/admin.html',
+            // controller: 'AdminController'
+        })
         .when('/blog/:id', {
             templateUrl: 'views/singleblog.html',
             controller: 'SingleBlogController'
