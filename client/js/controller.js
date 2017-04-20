@@ -1,4 +1,9 @@
 angular.module('HairSmoothieBar.controllers', [])
+.controller('WelcomeController', ['$scope', '$http', '$location', function($scope, $http, $location){
+    $scope.goToShop = function(){
+        $location.path('/products');
+    }
+}])
 
     .controller('BlogController', ['$scope', 'Blog', '$location', function($scope, Blog, $location) {
         $scope.blogposts = Blog.query();
@@ -37,7 +42,7 @@ angular.module('HairSmoothieBar.controllers', [])
     }])
 
 
-    .controller('AppopintmentsController', [])
+    .controller('AppointmentsController', [])
 
 
     .controller('CheckoutController', [])
