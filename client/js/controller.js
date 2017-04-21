@@ -73,15 +73,14 @@ angular.module('HairSmoothieBar.controllers', [])
 
     }])
 
-    .controller('CheckoutController', ['$scope', '$location', 'SEOService', 'ShopCart', function ($scope, $location, SEOService, ShopCart) {
+    .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', 'Purchases', function ($scope, $location, $http, SEOService, ShopCart, Purchases) {
         $scope.items = ShopCart.loadCart();
         $scope.cart = ShopCart.getCart();
         console.log($scope.cart);
-        $scope.totalCart = ShopCart.totalCart();
-        console.log($scope.totalCart);
+        $scope.subtotal = ShopCart.totalCart();
         $scope.count = ShopCart.countCart();
         $scope.shipping = 15;
-        $scope.total = $scope.shipping + $scope.totalCart;
+        $scope.total = $scope.shipping + $scope.subtotal;
 
         $scope.processPayment = function () {
             Stripe.card.createToken({
@@ -110,9 +109,9 @@ angular.module('HairSmoothieBar.controllers', [])
                         $scope.clear = ShopCart.clearCart();
                     }, function () {
                         alert("PAYMENT NOT SUCCESSFUL");
-                    })
+                    });
                 }
-            })
+            });
         }
 
         SEOService.setSEO({
@@ -159,24 +158,6 @@ angular.module('HairSmoothieBar.controllers', [])
             url: $location.url(),
             description: 'Hair Smoothie Bar Products'
         });
-    }])
-
-    .controller('CartController', ['$scope', '$rootScope', 'ShopCart', '$location', '$localStorage', 'ShopCart', function ($scope, $rootScope, ShopCart, $location, $localStorage, ShopCart) {
-        $scope.items = ShopCart.loadCart();
-        $scope.cart = ShopCart.getCart();
-        $scope.total = ShopCart.totalCart();
-        $scope.count = ShopCart.countCart();
-
-        $scope.remove = function (id) {
-            $scope.cart = ShopCart.getCart();
-            $scope.id = $scope.cart[0].id;
-            $scope.remove = ShopCart.removeItem($scope.id);
-            location.reload();
-        };
-
-        $scope.goToCheckout = function () {
-            $location.path('/purchases');
-        }
     }])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {

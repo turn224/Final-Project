@@ -25,7 +25,7 @@ angular.module('HairSmoothieBar.factories', [])
     }])
 
     .factory('Purchases', ['$resource', function ($resource) {
-        return $resource('/api/purchases/:id', { id: "@id" }, {
+        return $resource('/api/purchases/:id', { id: '@id' }, {
             'update': { method: 'PUT' },
             'post': { method: 'POST' }
         })
