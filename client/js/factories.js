@@ -23,9 +23,9 @@ angular.module('HairSmoothieBar.factories', [])
             'post': { method: 'POST' }
         })
     }])
-    
+
     .factory('Checkout', ['$resource', function ($resource) {
-        return $resource("http://localhost:3000/api/chexkout", { purchase: "@purchase" },
+        return $resource("http://localhost:3000/api/checkout", { purchase: "@purchase" },
             {
                 "update": { method: "PUT" }
             })
