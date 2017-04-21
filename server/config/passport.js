@@ -13,11 +13,16 @@ function configurePassport(app) {
         passwordField: 'password'
     }, function (email, password, done) {
         userProc.readByEmail(email).then(function (user) {
+            // console.log(user);
             if (!user) {
                 return done(null, false);
             }
+            console.log(user);
             utils.checkPassword(password, user.password)
                 .then(function (matches) {
+                    console.log(password);
+                    console.log(user.password);
+                    console.log(matches);
                     if (matches) {
                         return done(null, user);
                     } else {

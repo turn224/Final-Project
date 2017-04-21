@@ -244,9 +244,9 @@ angular.module('HairSmoothieBar.controllers', [])
             UserService.login($scope.email, $scope.password)
                 .then(function () {
                     redirect();
-                }), function (err) {
+                }, function (err) {
                     console.log(err);
-                }
+                });
         }
         SEOService.setSEO({
             title: 'Login',

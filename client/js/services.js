@@ -40,7 +40,7 @@ angular.module('HairSmoothieBar.services', [])
                 method: 'POST',
                 url: 'http://localhost:3000/api/customers/login',
                 data: { email, password }
-            }).then(function (success) {
+            }).then(function (success) { console.log(success);
                 user = success.data;
                 return success.data;
             })
