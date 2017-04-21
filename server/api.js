@@ -16,4 +16,5 @@ router.use('/purchases', purchases);
 router.use('/blog', blog);
 
 
+
 module.exports = router;
