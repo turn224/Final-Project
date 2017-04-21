@@ -41,10 +41,14 @@ router.post('/', function (req, res) {
     var u = req.body;
     return procedures.post(u)
         .then(function (success) {
-            res.sendStatus(204);
-        }, function (err) {
-            console.log(err);
-            res.status(500).send(err);
+            eSvc.sendEmail(req.body.fromEmail, req.body.subject, 'fm_lewis@bellsouth.net', req.body.content)
+                .then(function (success) {
+                    console.log('SUCCESS')
+                    res.send('sent');
+                }, function (err) {
+                    console.log(err);
+                    res.status(500).send(err);
+                });
         });
 });
 router.get('/:id', auth.isAdmin, function (req, res) {

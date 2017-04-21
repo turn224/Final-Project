@@ -1,13 +1,34 @@
 angular.module('HairSmoothieBar.controllers', [])
-    .controller('WelcomeController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+    .controller('WelcomeController', ['$scope', '$http', '$location', 'SEOService', function ($scope, $http, $location, SEOService) {
         $scope.goToShop = function () {
             $location.path('/products');
         }
+        SEOService.setSEO({
+			title: 'Hair Smoothie Bar',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar'
+		});
     }])
 
-    .controller('BlogController', ['$scope', 'Blog', '$location', function ($scope, Blog, $location) {
+    .controller('AboutController', ['$scope', '$http', '$location', 'SEOService', function($scope, $http, $location, SEOService){
+        SEOService.setSEO({
+			title: 'About',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar About'
+		});
+    }])
+
+    .controller('BlogController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
         $scope.blogposts = Blog.query();
         console.log($scope.blogposts);
+        SEOService.setSEO({
+			title: 'Blog',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Blog'
+		});
 
         $scope.goToNewPost = function () {
             $location.path('/compose');
@@ -18,7 +39,13 @@ angular.module('HairSmoothieBar.controllers', [])
         }
     }])
 
-    .controller('ComposeController', ['$scope', 'Blog', '$location', function ($scope, Blog, $location) {
+    .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
+        SEOService.setSEO({
+			title: 'Compose',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Blog'
+		});
 
         $scope.savePost = function () {
             var newPost = new Blog({
@@ -31,60 +58,132 @@ angular.module('HairSmoothieBar.controllers', [])
         }
     }])
 
-    .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', function ($scope, Blog, $location, $routeParams) {
+    .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', 'SEOService', function ($scope, Blog, $location, $routeParams, SEOService) {
         var id = $routeParams.id;
-
         Blog.get({ id: $routeParams.id }, function (success) {
             $scope.singleblog = success;
             console.log($scope.singleblog);
         })
+        SEOService.setSEO({
+			title: 'Blog',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Blog'
+		});
 
     }])
-    
-    .controller('CheckoutController', [])
 
-    .controller('ProductsController', ['$scope', '$location', 'Products', function ($scope, $location, Products) {
+    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function($scope, $location, SESEOService){
+       $scope.processPayment = function () {
+            console.log("Cash Me Outside");
+            Stripe.card.createToken({
+                number: $scope.cardNumber,
+                cvc: $scope.cvc,
+                exp_month: $scope.expMonth,
+                exp_year: $scope.expYear
+            },function (status, response) {
+                console.log("Paid");
+                if (response.error) {
+                    alert("Trans failed!");
+                } else {
+                    console.log("Payment SUCCESSFUL");
+                    var token = response.id;
+                    console.log(token);
+                    $http({
+                        method: "POST",
+                        url: "http://localhost:3000/api/checkout",
+                        data: {
+                            token: token,
+                            amount: 59
+                        }
+                    }).then(function () {
+                        alert("PAYMENT NOT SUCCESSFUL!");
+                    }, function () {
+                        alert("PAYMENT SUCCESSFUL");
+                    })
+                }
+            })
+        }
+       
+        SEOService.setSEO({
+			title: 'Checkout',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Checkout'
+
+            
+		});
+    }])
+
+    .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', function ($scope, $location, Products, SEOService) {
         $scope.products = Products.query();
+        SEOService.setSEO({
+			title: 'Products',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Products'
+		});
     }])
 
-    .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', function ($scope, $location, $routeParams, Products) {
+    .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', 'SEOService', function ($scope, $location, $routeParams, Products, SEOService) {
         Products.get({ id: $routeParams.id }, function (success) {
             $scope.product = success;
         }, function (err) {
             console.log(err);
-        })
+        });
+        SEOService.setSEO({
+			title: 'Products',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Products'
+		});
     }])
 
-    .controller('ServicesController', ['$scope', '$location', 'Services', function ($scope, $location, Services) {
-
+    .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {
         $scope.services = Services.query();
+        SEOService.setSEO({
+			title: 'Services',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Services'
+		});
     }])
 
-    .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', function ($scope, $location, $routeParams, Services) {
+    .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', 'SEOService', function ($scope, $location, $routeParams, Services, SEOService) {
         Services.get({ id: $routeParams.id }, function (success) {
             $scope.service = success;
         }, function (err) {
             console.log(err);
-        })
+        });
+        SEOService.setSEO({
+			title: 'Services',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Services'
+		});
     }])
 
-    .controller('MailingController', ['$scope', '$http', '$location', 'Customers', function ($scope, $http, $location, Customers) {
+    .controller('MailingController', ['$scope', '$http', '$location', 'Customers', 'SEOService', function ($scope, $http, $location, Customers, SEOService) {
+         SEOService.setSEO({
+			title: 'Mailing List',
+			image: 'http://' + $location.host() + '/images/logo.png',
+			url: $location.url(),
+			description: 'Hair Smoothie Bar Mailing List'
+		});
         $scope.newContact = {
             firstname: '',
             lastname: '',
             fromEmail: '',
             phone: ''
-            // subject: '',
-            // content: ''
-            // subject: 'Hair Smoothie Bar',
-			// 	content: 'Thank you for joining our mailing list.  Stay tuned for exciting information about Hair Smoothie Bar'
         }
         $scope.mailingList = function () {
             var contact = new Customers({
                 firstname: $scope.newContact.firstname,
                 lastname: $scope.newContact.lastname,
                 fromEmail: $scope.newContact.fromEmail,
-                phone: $scope.newContact.phone
+                phone: $scope.newContact.phone,
+                subject: 'Hair Smoothie Bar',
+				content: 'Thank you for joining our mailing list.  Stay tuned for exciting information about Hair Smoothie Bar'
             })
             contact.$save(function (success) {
                 $location.path('/about');
