@@ -19,7 +19,7 @@ var router = express.Router();
 
 router.post('/login', function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
-        console.log(user);
+        // console.log(user);
         // console.log(info);
         if (err) {
             console.log(err);
@@ -31,6 +31,7 @@ router.post('/login', function (req, res, next) {
         }
         req.logIn(user, function (err) {
             if (err) {
+                console.log('here');
                 console.log(err) ;
                 return res.sendStatus(500); 
             }
