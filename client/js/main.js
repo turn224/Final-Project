@@ -47,11 +47,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/login', {
             templateUrl: 'views/login.html',
-            // controller: 'LoginController'
+            controller: 'LoginController'
         })
         .when('/admin', {
             templateUrl: 'views/admin.html',
-            // controller: 'AdminController'
+            controller: 'AdminController'
         })
         .when('/blog/:id', {
             templateUrl: 'views/singleblog.html',

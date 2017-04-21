@@ -4,31 +4,31 @@ angular.module('HairSmoothieBar.controllers', [])
             $location.path('/products');
         }
         SEOService.setSEO({
-			title: 'Hair Smoothie Bar',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar'
-		});
+            title: 'Hair Smoothie Bar',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar'
+        });
     }])
 
-    .controller('AboutController', ['$scope', '$http', '$location', 'SEOService', function($scope, $http, $location, SEOService){
+    .controller('AboutController', ['$scope', '$http', '$location', 'SEOService', function ($scope, $http, $location, SEOService) {
         SEOService.setSEO({
-			title: 'About',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar About'
-		});
+            title: 'About',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar About'
+        });
     }])
 
     .controller('BlogController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
         $scope.blogposts = Blog.query();
         console.log($scope.blogposts);
         SEOService.setSEO({
-			title: 'Blog',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Blog'
-		});
+            title: 'Blog',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Blog'
+        });
 
         $scope.goToNewPost = function () {
             $location.path('/compose');
@@ -41,11 +41,11 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
         SEOService.setSEO({
-			title: 'Compose',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Blog'
-		});
+            title: 'Compose',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Blog'
+        });
 
         $scope.savePost = function () {
             var newPost = new Blog({
@@ -65,23 +65,23 @@ angular.module('HairSmoothieBar.controllers', [])
             console.log($scope.singleblog);
         })
         SEOService.setSEO({
-			title: 'Blog',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Blog'
-		});
+            title: 'Blog',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Blog'
+        });
 
     }])
 
-    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function($scope, $location, SESEOService){
-       $scope.processPayment = function () {
+    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SESEOService) {
+        $scope.processPayment = function () {
             console.log("Cash Me Outside");
             Stripe.card.createToken({
                 number: $scope.cardNumber,
                 cvc: $scope.cvc,
                 exp_month: $scope.expMonth,
                 exp_year: $scope.expYear
-            },function (status, response) {
+            }, function (status, response) {
                 console.log("Paid");
                 if (response.error) {
                     alert("Trans failed!");
@@ -104,25 +104,25 @@ angular.module('HairSmoothieBar.controllers', [])
                 }
             })
         }
-       
-        SEOService.setSEO({
-			title: 'Checkout',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Checkout'
 
-            
-		});
+        SEOService.setSEO({
+            title: 'Checkout',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Checkout'
+
+
+        });
     }])
 
     .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', function ($scope, $location, Products, SEOService) {
         $scope.products = Products.query();
         SEOService.setSEO({
-			title: 'Products',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Products'
-		});
+            title: 'Products',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Products'
+        });
     }])
 
     .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', 'SEOService', function ($scope, $location, $routeParams, Products, SEOService) {
@@ -132,21 +132,21 @@ angular.module('HairSmoothieBar.controllers', [])
             console.log(err);
         });
         SEOService.setSEO({
-			title: 'Products',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Products'
-		});
+            title: 'Products',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Products'
+        });
     }])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {
         $scope.services = Services.query();
         SEOService.setSEO({
-			title: 'Services',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Services'
-		});
+            title: 'Services',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Services'
+        });
     }])
 
     .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', 'SEOService', function ($scope, $location, $routeParams, Services, SEOService) {
@@ -156,20 +156,20 @@ angular.module('HairSmoothieBar.controllers', [])
             console.log(err);
         });
         SEOService.setSEO({
-			title: 'Services',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Services'
-		});
+            title: 'Services',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Services'
+        });
     }])
 
     .controller('MailingController', ['$scope', '$http', '$location', 'Customers', 'SEOService', function ($scope, $http, $location, Customers, SEOService) {
-         SEOService.setSEO({
-			title: 'Mailing List',
-			image: 'http://' + $location.host() + '/images/logo.png',
-			url: $location.url(),
-			description: 'Hair Smoothie Bar Mailing List'
-		});
+        SEOService.setSEO({
+            title: 'Mailing List',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Mailing List'
+        });
         $scope.newContact = {
             firstname: '',
             lastname: '',
@@ -183,12 +183,41 @@ angular.module('HairSmoothieBar.controllers', [])
                 fromEmail: $scope.newContact.fromEmail,
                 phone: $scope.newContact.phone,
                 subject: 'Hair Smoothie Bar',
-				content: 'Thank you for joining our mailing list.  Stay tuned for exciting information about Hair Smoothie Bar'
+                content: 'Thank you for joining our mailing list.  Stay tuned for exciting information about Hair Smoothie Bar'
             })
             contact.$save(function (success) {
                 $location.path('/about');
             });
         }
+    }])
+
+    .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+        UserService.me().then(function (success) {
+            // redirect();
+        })
+        function redirect() {
+            var dest = $location.search().p;
+            if (!dest) { dest = '/admin'; }
+            $location.path(dest).search('p', null);
+        }
+        $scope.login = function () {
+            UserService.login($scope.email, $scope.password)
+                .then(function () {
+                    redirect();
+                }), function (err) {
+                    console.log(err);
+                }
+        }
+        SEOService.setSEO({
+            title: 'Login',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Admin Login Page'
+        });
+    }])
+
+    .controller('AdminController', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
+        UserService.requireLogin();
     }])
 
 

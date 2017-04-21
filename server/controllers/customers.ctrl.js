@@ -51,6 +51,11 @@ router.post('/', function (req, res) {
                 });
         });
 });
+
+router.get('/me', function (req, res) {
+    res.send(req.user);
+});
+
 router.get('/:id', auth.isAdmin, function (req, res) {
     return procedures.read(req.params.id).then(function (user) {
         res.send(user);
@@ -66,8 +71,5 @@ router.put('/:id', auth.isAdmin, function (req, res) {
             console.log(err);
             res.status(500).send(err);
         });
-});
-router.get('/me', function (req, res) {
-    res.send(req.user);
 });
 module.exports = router;
