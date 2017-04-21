@@ -73,12 +73,45 @@ angular.module('HairSmoothieBar.controllers', [])
 
     }])
 
-    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function($scope, $location, SESEOServiceO){
+    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function($scope, $location, SESEOService){
+       $scope.processPayment = function () {
+            console.log("Cash Me Outside");
+            Stripe.card.createToken({
+                number: $scope.cardNumber,
+                cvc: $scope.cvc,
+                exp_month: $scope.expMonth,
+                exp_year: $scope.expYear
+            },function (status, response) {
+                console.log("Paid");
+                if (response.error) {
+                    alert("Trans failed!");
+                } else {
+                    console.log("Payment SUCCESSFUL");
+                    var token = response.id;
+                    console.log(token);
+                    $http({
+                        method: "POST",
+                        url: "http://localhost:3000/api/checkout",
+                        data: {
+                            token: token,
+                            amount: 59
+                        }
+                    }).then(function () {
+                        alert("PAYMENT NOT SUCCESSFUL!");
+                    }, function () {
+                        alert("PAYMENT SUCCESSFUL");
+                    })
+                }
+            })
+        }
+       
         SEOService.setSEO({
 			title: 'Checkout',
 			image: 'http://' + $location.host() + '/images/logo.png',
 			url: $location.url(),
 			description: 'Hair Smoothie Bar Checkout'
+
+            
 		});
     }])
 
