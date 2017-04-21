@@ -73,87 +73,47 @@ angular.module('HairSmoothieBar.controllers', [])
 
     }])
 
-    .controller('CheckoutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SESEOService) {
+    .controller('CheckoutController', ['$scope', '$location', 'SEOService', 'ShopCart', function ($scope, $location, SEOService, ShopCart) {
+        $scope.items = ShopCart.loadCart();
+        $scope.cart = ShopCart.getCart();
+        console.log($scope.cart);
+        $scope.totalCart = ShopCart.totalCart();
+        console.log($scope.totalCart);
+        $scope.count = ShopCart.countCart();
+        $scope.shipping = 15;
+        $scope.total = $scope.shipping + $scope.totalCart;
+
         $scope.processPayment = function () {
-            console.log("Cash Me Outside");
             Stripe.card.createToken({
                 number: $scope.cardNumber,
                 cvc: $scope.cvc,
                 exp_month: $scope.expMonth,
                 exp_year: $scope.expYear
             }, function (status, response) {
-                console.log("Paid");
                 if (response.error) {
                     alert("Trans failed!");
                 } else {
                     console.log("Payment SUCCESSFUL");
-                    var token = response.id;
-                    console.log(token);
+                    var stripetransactionid = response.id;
+                    console.log(stripetransactionid);
                     $http({
                         method: "POST",
-                        url: "http://localhost:3000/api/checkout",
+                        url: "http://localhost:3000/api/purchases",
                         data: {
-                            token: token,
-                            amount: 59
+                            stripetransactionid: stripetransactionid,
+                            total: $scope.total,
+                            productid: $scope.cart[0].id
                         }
                     }).then(function () {
-                        alert("PAYMENT NOT SUCCESSFUL!");
+                        alert("Thank you for your Covalence Store Purchase!")
+                        $location.path('/');
+                        $scope.clear = ShopCart.clearCart();
                     }, function () {
-                        alert("PAYMENT SUCCESSFUL");
+                        alert("PAYMENT NOT SUCCESSFUL");
                     })
                 }
             })
         }
-
-        // $scope.items = ShopCart.loadCart();
-		// $scope.cart = ShopCart.getCart();
-		// console.log($scope.cart);
-		// $scope.total = ShopCart.totalCart();
-		// $scope.count = ShopCart.countCart();
-
-		// $scope.goToShop = function () {
-		// 	$location.path('/apparel');
-		// }
-		// SEOService.setSEO({
-		// 	title: 'Checkout',
-		// 	image: 'http://' + $location.host() + '/images/covalence-store-01.jpg',
-		// 	url: $location.url(),
-		// 	description: 'Covalence Store Checkout'
-		// });
-		// $scope.processPayment = function () {
-		// 	Stripe.card.createToken({
-		// 		number: $scope.cardNumber,
-		// 		cvc: $scope.cvc,
-		// 		exp_month: $scope.expMonth,
-		// 		exp_year: $scope.expYear
-		// 	}, function (status, response) {
-		// 		if (response.error) {
-		// 			alert("There was a problem!")
-		// 		} else {
-		// 			var stripetransactionid = response.id;
-		// 			console.log(response.id);
-		// 			$http({
-		// 				method: "POST",
-		// 				url: "http://localhost:3000/api/purchases",
-		// 				data: {
-		// 					stripetransactionid: stripetransactionid,
-		// 					price: $scope.total,
-		// 					productid: $scope.productid,
-		// 					subject: 'Covalence Store Purchase',
-		// 					content: 'Total purchase: $' + $scope.total + ". " + 'Product: ' + $scope.cart[0].title
-		// 				}
-		// 			}).then(function () {
-		// 				alert("Thank you for your Covalence Store Purchase!")
-		// 				$location.path('/');
-		// 				$scope.clear = ShopCart.clearCart();
-
-		// 			}, function () {
-		// 				console.log($scope.productid);
-		// 				alert("PAYMENT NOT SUCCESSFUL")
-		// 			});
-		// 		}
-		// 	});
-		// }
 
         SEOService.setSEO({
             title: 'Checkout',
@@ -175,23 +135,23 @@ angular.module('HairSmoothieBar.controllers', [])
         });
     }])
 
-    .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', 'SEOService', function ($scope, $location, $routeParams, Products, SEOService) {
+    .controller('ProductDetailController', ['$scope', '$location', '$routeParams', 'Products', 'SEOService', 'ShopCart', function ($scope, $location, $routeParams, Products, SEOService, ShopCart) {
         Products.get({ id: $routeParams.id }, function (success) {
             $scope.product = success;
         }, function (err) {
             console.log(err);
         });
 
-        $scope.addToCart = function (apparel) {
+        $scope.addToCart = function (product) {
             ShopCart.addToCart({
-                title: $scope.apparel.title,
-                price: $scope.apparel.price,
-                imageurl: $scope.apparel.imageurl,
-                id: $scope.apparel.id,
+                productName: $scope.product.productName,
+                productPrice: $scope.product.productPrice,
+                productImg: $scope.product.productImg,
+                id: $scope.product.id,
                 qty: 1
             });
+            location.reload();
         }
-        location.reload();
 
         SEOService.setSEO({
             title: 'Products',
@@ -201,23 +161,23 @@ angular.module('HairSmoothieBar.controllers', [])
         });
     }])
 
-    .controller('CartController', ['$scope', '$rootScope', 'ShopCart', '$location', '$localStorage', function ($scope, $rootScope, ShopCart, $location, $localStorage) {
-		$scope.items = ShopCart.loadCart();
-		$scope.cart = ShopCart.getCart();
-		$scope.total = ShopCart.totalCart();
-		$scope.count = ShopCart.countCart();
+    .controller('CartController', ['$scope', '$rootScope', 'ShopCart', '$location', '$localStorage', 'ShopCart', function ($scope, $rootScope, ShopCart, $location, $localStorage, ShopCart) {
+        $scope.items = ShopCart.loadCart();
+        $scope.cart = ShopCart.getCart();
+        $scope.total = ShopCart.totalCart();
+        $scope.count = ShopCart.countCart();
 
-		$scope.remove = function (id) {
-			$scope.cart = ShopCart.getCart();
-			$scope.id = $scope.cart[0].id;
-			$scope.remove = ShopCart.removeItem($scope.id);
-			location.reload();
-		};
+        $scope.remove = function (id) {
+            $scope.cart = ShopCart.getCart();
+            $scope.id = $scope.cart[0].id;
+            $scope.remove = ShopCart.removeItem($scope.id);
+            location.reload();
+        };
 
-		$scope.goToCheckout = function () {
-			$location.path('/purchases');
-		}
-	}])
+        $scope.goToCheckout = function () {
+            $location.path('/purchases');
+        }
+    }])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {
         $scope.services = Services.query();

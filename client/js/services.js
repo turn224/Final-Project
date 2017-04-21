@@ -82,9 +82,9 @@ angular.module('HairSmoothieBar.services', [])
                 }
             };
             var newItem = {
-                title: item.title,
-                price: item.price,
-                imageurl: item.imageurl,
+                productName: item.productName,
+                productPrice: item.productPrice,
+                productImg: item.productImg,
                 qty: 1,
                 id: item.id
             };
@@ -129,7 +129,7 @@ angular.module('HairSmoothieBar.services', [])
         this.totalCart = function () {
             var totalCost = 0;
             for (var i in cartItems) {
-                totalCost += cartItems[i].price * cartItems[i].qty;
+                totalCost += cartItems[i].productPrice * cartItems[i].qty;
             }
             this.saveCart();
             return totalCost;
