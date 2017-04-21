@@ -105,6 +105,56 @@ angular.module('HairSmoothieBar.controllers', [])
             })
         }
 
+        // $scope.items = ShopCart.loadCart();
+		// $scope.cart = ShopCart.getCart();
+		// console.log($scope.cart);
+		// $scope.total = ShopCart.totalCart();
+		// $scope.count = ShopCart.countCart();
+
+		// $scope.goToShop = function () {
+		// 	$location.path('/apparel');
+		// }
+		// SEOService.setSEO({
+		// 	title: 'Checkout',
+		// 	image: 'http://' + $location.host() + '/images/covalence-store-01.jpg',
+		// 	url: $location.url(),
+		// 	description: 'Covalence Store Checkout'
+		// });
+		// $scope.processPayment = function () {
+		// 	Stripe.card.createToken({
+		// 		number: $scope.cardNumber,
+		// 		cvc: $scope.cvc,
+		// 		exp_month: $scope.expMonth,
+		// 		exp_year: $scope.expYear
+		// 	}, function (status, response) {
+		// 		if (response.error) {
+		// 			alert("There was a problem!")
+		// 		} else {
+		// 			var stripetransactionid = response.id;
+		// 			console.log(response.id);
+		// 			$http({
+		// 				method: "POST",
+		// 				url: "http://localhost:3000/api/purchases",
+		// 				data: {
+		// 					stripetransactionid: stripetransactionid,
+		// 					price: $scope.total,
+		// 					productid: $scope.productid,
+		// 					subject: 'Covalence Store Purchase',
+		// 					content: 'Total purchase: $' + $scope.total + ". " + 'Product: ' + $scope.cart[0].title
+		// 				}
+		// 			}).then(function () {
+		// 				alert("Thank you for your Covalence Store Purchase!")
+		// 				$location.path('/');
+		// 				$scope.clear = ShopCart.clearCart();
+
+		// 			}, function () {
+		// 				console.log($scope.productid);
+		// 				alert("PAYMENT NOT SUCCESSFUL")
+		// 			});
+		// 		}
+		// 	});
+		// }
+
         SEOService.setSEO({
             title: 'Checkout',
             image: 'http://' + $location.host() + '/images/logo.png',
@@ -131,6 +181,18 @@ angular.module('HairSmoothieBar.controllers', [])
         }, function (err) {
             console.log(err);
         });
+
+        $scope.addToCart = function (apparel) {
+            ShopCart.addToCart({
+                title: $scope.apparel.title,
+                price: $scope.apparel.price,
+                imageurl: $scope.apparel.imageurl,
+                id: $scope.apparel.id,
+                qty: 1
+            });
+        }
+        location.reload();
+
         SEOService.setSEO({
             title: 'Products',
             image: 'http://' + $location.host() + '/images/logo.png',
@@ -138,6 +200,24 @@ angular.module('HairSmoothieBar.controllers', [])
             description: 'Hair Smoothie Bar Products'
         });
     }])
+
+    .controller('CartController', ['$scope', '$rootScope', 'ShopCart', '$location', '$localStorage', function ($scope, $rootScope, ShopCart, $location, $localStorage) {
+		$scope.items = ShopCart.loadCart();
+		$scope.cart = ShopCart.getCart();
+		$scope.total = ShopCart.totalCart();
+		$scope.count = ShopCart.countCart();
+
+		$scope.remove = function (id) {
+			$scope.cart = ShopCart.getCart();
+			$scope.id = $scope.cart[0].id;
+			$scope.remove = ShopCart.removeItem($scope.id);
+			location.reload();
+		};
+
+		$scope.goToCheckout = function () {
+			$location.path('/purchases');
+		}
+	}])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {
         $scope.services = Services.query();
