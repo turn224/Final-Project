@@ -1,19 +1,29 @@
 .welcome {
   background-image: url(../images/glowing-green-smoothies.jpg);
-  background-size: cover;
-  background-repeat: repeat;
-  min-height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
   width: 100%;
   height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
+  background-size: cover;
+  background-color: #E7B72B;
+  /*width: 100%;*/
+  /*height: auto;*/
 }
+
+@media only screen and (min-device-width: 600px) {
+  .welcome {
+    background-size: cover;
+    height: auto;
+  }
+}
+
 #img-div {
   display: inline-block;
   width: 800px;
   height: 400px;
-  margin-top: 13em;
+  margin-top: 10em;
+  position: relative;
 }
 #welcome-desc {
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
