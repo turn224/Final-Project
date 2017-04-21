@@ -39,7 +39,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/checkout', {
             templateUrl: 'views/checkout.html',
-            //    controller: 'CheckoutController'
+               controller: 'CheckoutController'
         })
         .when('/developers', {
             templateUrl: 'views/developers.html',
