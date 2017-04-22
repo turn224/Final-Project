@@ -98,7 +98,7 @@ angular.module('HairSmoothieBar.controllers', [])
                         method: "POST",
                         url: "http://localhost:3000/api/purchases",
                         data: {
-                            stripeid: stripeid,
+                            stripetransactionid: stripetransactionid,
                             total: $scope.total,
                             productid: $scope.cart[0].id
                         }
