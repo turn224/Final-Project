@@ -3,12 +3,16 @@ angular.module('HairSmoothieBar.controllers', [])
         $scope.goToShop = function () {
             $location.path('/products');
         }
+        $scope.goToLogin = function() {
+            $location.path('/login');
+        }
         SEOService.setSEO({
             title: 'Hair Smoothie Bar',
             image: 'http://' + $location.host() + '/images/logo.png',
             url: $location.url(),
             description: 'Hair Smoothie Bar'
         });
+        
     }])
 
     .controller('AboutController', ['$scope', '$http', '$location', 'SEOService', function ($scope, $http, $location, SEOService) {
@@ -30,33 +34,17 @@ angular.module('HairSmoothieBar.controllers', [])
             description: 'Hair Smoothie Bar Blog'
         });
 
-        $scope.goToNewPost = function () {
-            $location.path('/compose');
-        }
+        // $scope.goToNewPost = function () {
+        //     $location.path('/compose');
+        // }
 
         $scope.goToSinglePost = function (id) {
             $location.path('/blog/' + id);
         }
     }])
 
-    .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
-        SEOService.setSEO({
-            title: 'Compose',
-            image: 'http://' + $location.host() + '/images/logo.png',
-            url: $location.url(),
-            description: 'Hair Smoothie Bar Blog'
-        });
-
-        $scope.savePost = function () {
-            var newPost = new Blog({
-                title: $scope.title,
-                content: $scope.content,
-            });
-            newPost.$save(function (success) {
-                $location.path('/blog');
-            });
-        }
-    }])
+    // .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
+        
 
     .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', 'SEOService', function ($scope, Blog, $location, $routeParams, SEOService) {
         var id = $routeParams.id;
@@ -238,7 +226,32 @@ angular.module('HairSmoothieBar.controllers', [])
     }])
 
     .controller('AdminController', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
-        UserService.requireLogin();
+        UserService.requireLogin(true);
+        UserService.isAdmin($scope.role);
+
+        SEOService.setSEO({
+            title: 'Compose',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Blog'
+        });
+
+        $scope.savePost = function () {
+            var newPost = new Blog({
+                title: $scope.title,
+                content: $scope.content,
+            });
+            newPost.$save(function (success) {
+                $location.path('/blog');
+            });
+        }
+        $scope.logout = function () {
+                UserService.logout().then(function () {
+                    $location.path('/');
+                }), function (err) {
+                    console.log(err);
+                }
+            }
     }])
 
 
