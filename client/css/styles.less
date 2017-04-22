@@ -11,7 +11,7 @@
 
 
 body {
-    margin-top: 8em;
+    margin-top: 5em;
 }
 .navbar {
     // height: 8em;
@@ -78,6 +78,20 @@ body {
         }
     }
 }
+.footer-distributed {
+    height: 5em;
+    background-color: #03A5BA;
+    color: white;
+    line-height: 5em;
+    font-size: 15px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+
+    a {
+        color: white;
+    }
+}
 
 @media screen and (max-width: 575px) {
     body {
@@ -108,8 +122,10 @@ body {
     #myNavbar {
         background-color: transparent;
     }
+    .footer-distributed {
+        text-align: center;
+        line-height: 2em;
+        height: 5em;
+    }
 }
 
-.footer {
-    height: 20em;
-}

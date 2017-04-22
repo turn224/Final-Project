@@ -17,12 +17,12 @@ function configurePassport(app) {
             if (!user) {
                 return done(null, false);
             }
-            console.log(user);
+            // console.log(user);
             utils.checkPassword(password, user.password)
                 .then(function (matches) {
-                    console.log(password);
-                    console.log(user.password);
-                    console.log(matches);
+                    // console.log(password);
+                    // console.log(user.password);
+                    // console.log(matches);
                     if (matches) {
                         return done(null, user);
                     } else {
@@ -36,7 +36,8 @@ function configurePassport(app) {
         });
     }));
     passport.serializeUser(function (user, done) {
-        done(null, user.id);
+        console.log(user);
+        done(null, user.custID);
     });
     passport.deserializeUser(function (id, done) {
         userProc.read(id).then(function (user) {
