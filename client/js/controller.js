@@ -73,8 +73,9 @@ angular.module('HairSmoothieBar.controllers', [])
 
     }])
 
-    .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', 'Purchases', function ($scope, $location, $http, SEOService, ShopCart, Purchases) {
+    .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', '$rootScope', '$localStorage', function ($scope, $location, $http, SEOService, ShopCart, $rootScope, $localStorage) {
         $scope.items = ShopCart.loadCart();
+        console.log($scope.items);
         $scope.cart = ShopCart.getCart();
         console.log($scope.cart);
         $scope.subtotal = ShopCart.totalCart();
@@ -104,7 +105,7 @@ angular.module('HairSmoothieBar.controllers', [])
                             productid: $scope.cart[0].id
                         }
                     }).then(function () {
-                        alert("Thank you for your Covalence Store Purchase!")
+                        alert("Thank you for your Hair Smoothie Bar Purchase!")
                         $location.path('/');
                         $scope.clear = ShopCart.clearCart();
                     }, function () {

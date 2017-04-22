@@ -148,8 +148,10 @@ angular.module('HairSmoothieBar.services', [])
         };
         this.saveCart = function () {
             localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+            console.log(localStorage.shoppingCart);
         };
         this.loadCart = function () {
             cartItems = JSON.parse(localStorage.getItem('shoppingCart'));
+            console.log(cartItems);
         };
     }]);

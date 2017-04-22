@@ -4,7 +4,7 @@ exports.charge = function(token, amount) {
     return stripe.charges.create({
         amount: amount,
         currency: 'usd',
-        source: token,
-        description: 'Paid'
+        source: stripetransactionid,
+        description: 'Hair Smoothie Bar'
     });
 }

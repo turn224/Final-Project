@@ -1,4 +1,4 @@
-var app = angular.module('HairSmoothieBar', ['ngRoute', 'ngResource', 'HairSmoothieBar.controllers', 'HairSmoothieBar.factories', 'HairSmoothieBar.services']);
+var app = angular.module('HairSmoothieBar', ['ngRoute', 'ngResource', 'ngStorage', 'HairSmoothieBar.controllers', 'HairSmoothieBar.factories', 'HairSmoothieBar.services']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
