@@ -226,7 +226,7 @@ angular.module('HairSmoothieBar.controllers', [])
         });
     }])
 
-    .controller('AdminController', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
+    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Blog', function ($scope, $location, UserService, SEOService, Blog) {
         UserService.requireLogin(true);
         UserService.isAdmin($scope.role);
 
