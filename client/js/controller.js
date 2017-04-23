@@ -69,6 +69,16 @@ angular.module('HairSmoothieBar.controllers', [])
         $scope.shipping = 15;
         $scope.total = $scope.shipping + $scope.subtotal;
 
+        SEOService.setSEO({
+            title: 'Checkout',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar Checkout'
+
+
+        });
+    }])
+
         $scope.processPayment = function () {
             Stripe.card.createToken({
                 number: $scope.cardNumber,
@@ -100,15 +110,7 @@ angular.module('HairSmoothieBar.controllers', [])
             });
         }
 
-        SEOService.setSEO({
-            title: 'Checkout',
-            image: 'http://' + $location.host() + '/images/logo.png',
-            url: $location.url(),
-            description: 'Hair Smoothie Bar Checkout'
-
-
-        });
-    }])
+        
 
     .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', function ($scope, $location, Products, SEOService) {
         $scope.products = Products.query();

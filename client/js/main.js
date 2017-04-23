@@ -27,7 +27,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         })
         .when('/appointments', {
             templateUrl: 'views/appointments.html',
-            //    controller: 'AppointmentsController'
+               controller: 'AppointmentsController'
         })
         .when('/blog', {
             templateUrl: 'views/blog.html',
