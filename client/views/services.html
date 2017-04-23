@@ -12,7 +12,9 @@
 		</div>
 	</div>
   
-
+<div class="row text-center">
+	<a ng-href="/about">Please contact us for pricing</a>
+</div>
 <div class="row">
   <div class="col-sm-6 col-md-4" ng-repeat="service in services">
     <div class="thumbnail">
@@ -20,7 +22,7 @@
       <img ng-src="{{service.serviceImg}}" alt="Test">
       </a>
       <div class="caption">
-        <h4>{{service.serviceName}} {{service.servicePrice | currency}}</h4>
+        <h4>{{service.serviceName}}</h4>
       </div>
     </div>
   </div>
