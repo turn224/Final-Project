@@ -1,5 +1,5 @@
 .welcome {
-  background-image: url(../images/glowing-green-smoothies.jpg);
+  background-image: url(../images/three-smoothies.jpg);
   background-size: cover;
   background-repeat: repeat;
   min-height: 100%;
@@ -9,21 +9,29 @@
   top: 0;
   left: 0;
 }
+/*#desc{*/
+  /*background-color: #03A5BA;*/
+  /*opacity: 0.5;*/
+  /*margin-top: 100px;*/
+/*}*/
 #img-div {
   display: inline-block;
   width: 800px;
   height: 400px;
-  margin-top: 13em;
+  margin-top: 8em;
 }
 #welcome-desc {
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   padding-top: 5em;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #E7B72B;
+  margin-top: 7em;
+  margin-bottom: 2em;
+  color: white;
   font-weight: bold;
-  font-family: 'Cantata One', serif;
+  font-family: 'Rammetto One', cursive;
+  background-color: #03A5BA;
+  opacity: 0.7;
+  align-items: center;
 }
 #welcome-logo {
   vertical-align: middle;
@@ -32,7 +40,7 @@
   margin-top: 3em;
 }
 .btn {
-  background-color: #E7B72B;
-  color: black;
-  font-family: 'Cantata One', serif;
+  background-color: #03A5BA;
+  color: white;
+  font-family: 'Rammetto One', cursive;
 }

@@ -5,28 +5,8 @@ var procedures = require('../procedures/purchases.proc')
 
 var router = express.Router();
 
-router.get('/', function (req, res) {
-        return procedures.all()
-            .then(function (success) {
-                console.log('im in get');
-                res.send(success);
-            }, function (err) {
-                console.log(err);
-                res.status(500).send(err);
-            });
-    });
-// router.post('/', function (req, res) { // /api/purchases
-//     return procedures.write(req.body)
-//         .then(function (success) {
-//             res.status(201).send(success);
-//         }, function (err) {
-//             console.log(err);
-//             res.status(500).send(err);
-//         })
-// });
 router.post('/', function (req, res) { // /api/purchases
-    console.log('im in post');
-    var amount = Number(req.body.total) * 100;
+    var amount = Number(req.body.price) * 100;
     stripeSvc.charge(req.body.stripetransactionid, amount)
         .then(function (success) {
             eSvc.sendEmail('fm_lewis@bellsouth.net', req.body.subject, 'fm_lewis@bellsouth.net', req.body.content)
@@ -35,5 +15,14 @@ router.post('/', function (req, res) { // /api/purchases
             console.log(err);
             res.sendStatus(500);
         });
+});
+router.post('/', function (req, res) { // /api/purchases
+    return procedures.write(req.body)
+        .then(function (success) {
+            res.status(201).send(success);
+        }, function (err) {
+            console.log(err);
+            res.status(500).send(err);
+        })
 });
 module.exports = router;

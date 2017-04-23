@@ -63,9 +63,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', '$rootScope', '$localStorage', function ($scope, $location, $http, SEOService, ShopCart, $rootScope, $localStorage) {
         $scope.items = ShopCart.loadCart();
-        console.log($scope.items);
         $scope.cart = ShopCart.getCart();
-        console.log($scope.cart);
         $scope.subtotal = ShopCart.totalCart();
         $scope.count = ShopCart.countCart();
         $scope.shipping = 15;
@@ -81,14 +79,13 @@ angular.module('HairSmoothieBar.controllers', [])
                 if (response.error) {
                     alert("Trans failed!");
                 } else {
-                    console.log("Payment SUCCESSFUL");
                     var stripetransactionid = response.id;
                     console.log(stripetransactionid);
                     $http({
                         method: "POST",
                         url: "http://localhost:3000/api/purchases",
                         data: {
-                            stripetransactionid: stripetransactionid,
+                            stripeid: stripetransactionid,
                             total: $scope.total,
                             productid: $scope.cart[0].id
                         }
@@ -147,6 +144,10 @@ angular.module('HairSmoothieBar.controllers', [])
             url: $location.url(),
             description: 'Hair Smoothie Bar Products'
         });
+
+        $scope.checkout = function() {
+            $location.path('/purchases');
+        }
     }])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {

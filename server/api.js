@@ -6,7 +6,6 @@ var customers = require('./controllers/customers.ctrl');
 var purchases = require('./controllers/purchases.ctrl');
 var blog = require('./controllers/blogs.ctrl');
 
-
 var router = express.Router();
 router.use('/products', products);
 router.use('/services', services);
@@ -14,7 +13,5 @@ router.use('/hairstyles', hairstyles);
 router.use('/customers', customers);
 router.use('/purchases', purchases);
 router.use('/blog', blog);
-
-
 
 module.exports = router;
