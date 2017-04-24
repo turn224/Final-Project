@@ -74,9 +74,15 @@ angular.module('HairSmoothieBar.controllers', [])
             image: 'http://' + $location.host() + '/images/logo.png',
             url: $location.url(),
             description: 'Hair Smoothie Bar Checkout'
-
-
         });
+
+        $scope.remove = function (id) {
+			$scope.cart = ShopCart.getCart();
+			$scope.id = $scope.cart[0].id;
+			$scope.remove = ShopCart.removeItem($scope.id);
+			location.reload();
+		};
+
         $scope.processPayment = function () {
             Stripe.card.createToken({
                 number: $scope.cardNumber,
@@ -173,7 +179,7 @@ angular.module('HairSmoothieBar.controllers', [])
         });
     }])
 
-    .controller('MailingController', ['$scope', '$http', '$location', 'Customers', 'SEOService', function ($scope, $http, $location, Customers, SEOService) {
+    .controller('MailingController', ['$scope', '$http', '$location', 'Mailing', 'SEOService', function ($scope, $http, $location, Mailing, SEOService) {
         SEOService.setSEO({
             title: 'Mailing List',
             image: 'http://' + $location.host() + '/images/logo.png',
@@ -187,7 +193,7 @@ angular.module('HairSmoothieBar.controllers', [])
             phone: ''
         }
         $scope.mailingList = function () {
-            var contact = new Customers({
+            var contact = new Mailing({
                 firstname: $scope.newContact.firstname,
                 lastname: $scope.newContact.lastname,
                 fromEmail: $scope.newContact.fromEmail,
