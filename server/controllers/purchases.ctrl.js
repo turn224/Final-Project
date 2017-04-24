@@ -5,8 +5,18 @@ var procedures = require('../procedures/purchases.proc')
 
 var router = express.Router();
 
+router.route('/')
+    .get(function (req, res) {
+        return procedures.all()
+            .then(function (success) {
+                res.send(success);
+            }, function (err) {
+                console.log(err);
+                res.status(500).send(err);
+            });
+    });
 router.post('/', function (req, res) { // /api/purchases
-    var amount = Number(req.body.price) * 100;
+    var amount = Number(req.body.total) * 100;
     stripeSvc.charge(req.body.stripetransactionid, amount)
         .then(function (success) {
             eSvc.sendEmail('fm_lewis@bellsouth.net', req.body.subject, 'fm_lewis@bellsouth.net', req.body.content)

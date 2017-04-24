@@ -64,10 +64,10 @@ angular.module('HairSmoothieBar.controllers', [])
     .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', '$rootScope', '$localStorage', function ($scope, $location, $http, SEOService, ShopCart, $rootScope, $localStorage) {
         $scope.items = ShopCart.loadCart();
         $scope.cart = ShopCart.getCart();
-        $scope.subtotal = ShopCart.totalCart();
+        $scope.total = ShopCart.totalCart();
         $scope.count = ShopCart.countCart();
         $scope.shipping = 15;
-        $scope.total = $scope.shipping + $scope.subtotal;
+        // $scope.total = $scope.shipping + $scope.subtotal;
 
         SEOService.setSEO({
             title: 'Checkout',
@@ -99,7 +99,7 @@ angular.module('HairSmoothieBar.controllers', [])
                         method: "POST",
                         url: "http://localhost:3000/api/purchases",
                         data: {
-                            stripeid: stripetransactionid,
+                            stripetransactionid: stripetransactionid,
                             total: $scope.total,
                             productid: $scope.cart[0].id
                         }
