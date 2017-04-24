@@ -20,10 +20,8 @@ app.use('/api', api);
 
 app.get("*", function(req, res, next) {
     if(routeMw.isAsset(req.url)) {
-        console.log('yes');
         next();
     } else {
-        console.log('yes, yes');
         res.sendFile(path.join(__dirname, "../client/index.html"));
     }
 });

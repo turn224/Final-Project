@@ -101,7 +101,9 @@ angular.module('HairSmoothieBar.controllers', [])
                         data: {
                             stripetransactionid: stripetransactionid,
                             total: $scope.total,
-                            productid: $scope.cart[0].id
+                            productid: $scope.cart[0].id,
+                            subject: 'Hair Smoothie Bar Purchase',
+							content: 'Total purchase: $' + $scope.total + ". " + 'Product: ' + $scope.cart
                         }
                     }).then(function () {
                         alert("Thank you for your Hair Smoothie Bar Purchase!")
