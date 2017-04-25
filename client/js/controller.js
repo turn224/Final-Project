@@ -69,6 +69,11 @@ angular.module('HairSmoothieBar.controllers', [])
         $scope.shipping = 15;
         // $scope.total = $scope.shipping + $scope.subtotal;
 
+         $scope.products = [];
+        angular.forEach($scope.cart, function(value, key){
+            $scope.products.push(value.productName);
+        });
+
         SEOService.setSEO({
             title: 'Checkout',
             image: 'http://' + $location.host() + '/images/logo.png',
@@ -82,7 +87,7 @@ angular.module('HairSmoothieBar.controllers', [])
 			$scope.remove = ShopCart.removeItem($scope.id);
 			location.reload();
 		};
-
+        
         $scope.processPayment = function () {
             Stripe.card.createToken({
                 number: $scope.cardNumber,
@@ -94,7 +99,6 @@ angular.module('HairSmoothieBar.controllers', [])
                     alert("Trans failed!");
                 } else {
                     var stripetransactionid = response.id;
-                    console.log(stripetransactionid);
                     $http({
                         method: "POST",
                         url: "http://localhost:3000/api/purchases",
@@ -103,7 +107,11 @@ angular.module('HairSmoothieBar.controllers', [])
                             total: $scope.total,
                             productid: $scope.cart[0].id,
                             subject: 'Hair Smoothie Bar Purchase',
-							content: 'Total purchase: $' + $scope.total + ". " + 'Product: ' + $scope.cart
+							content: 'Name: ' + $scope.first_name + ' ' + $scope.last_name + '<br>' + 
+                                     'Email: ' + $scope.email_address + '<br>' +
+                                     'Phone: ' + $scope.phone_number + '<br>' +
+                                     'Total: $' + $scope.total + '<br>' + 
+                                     'Product: ' + $scope.products
                         }
                     }).then(function () {
                         alert("Thank you for your Hair Smoothie Bar Purchase!")

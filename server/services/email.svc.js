@@ -20,7 +20,7 @@ exports.sendEmail = function (to, subject, fromEmail, content) {
             },
             content: [
                 {
-                    type: 'text/plain',
+                    type: 'text/html',
                     value: content,
                 },
             ],
