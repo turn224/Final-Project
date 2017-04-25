@@ -43,9 +43,6 @@ angular.module('HairSmoothieBar.controllers', [])
         }
     }])
 
-    // .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
-
-
     .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', 'SEOService', function ($scope, Blog, $location, $routeParams, SEOService) {
         var id = $routeParams.id;
         Blog.get({ id: $routeParams.id }, function (success) {
@@ -167,20 +164,6 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('ServicesController', ['$scope', '$location', 'Services', 'SEOService', function ($scope, $location, Services, SEOService) {
         $scope.services = Services.query();
-        SEOService.setSEO({
-            title: 'Services',
-            image: 'http://' + $location.host() + '/images/logo.png',
-            url: $location.url(),
-            description: 'Hair Smoothie Bar Services'
-        });
-    }])
-
-    .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', 'SEOService', function ($scope, $location, $routeParams, Services, SEOService) {
-        Services.get({ id: $routeParams.id }, function (success) {
-            $scope.service = success;
-        }, function (err) {
-            console.log(err);
-        });
         SEOService.setSEO({
             title: 'Services',
             image: 'http://' + $location.host() + '/images/logo.png',

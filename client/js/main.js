@@ -25,10 +25,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'views/about.html',
             controller: 'AboutController'
         })
-        .when('/appointments', {
-            templateUrl: 'views/appointments.html',
-               controller: 'AppointmentsController'
-        })
         .when('/blog', {
             templateUrl: 'views/blog.html',
             controller: 'BlogController'
@@ -56,10 +52,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .when('/blog/:id', {
             templateUrl: 'views/singleblog.html',
             controller: 'SingleBlogController'
-        })
-        .when('/services/:id', {
-            templateUrl: 'views/service-detail.html',
-            controller: 'ServiceDetailController'
         })
         .when('/products/:id', {
             templateUrl: 'views/product-detail.html',
