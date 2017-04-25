@@ -25,7 +25,7 @@ angular.module('HairSmoothieBar.services', [])
                 var current = $location.path();
                 $location.path('/login').search('p', current);
             } else if (checkAdmin && !this.isAdmin()) {
-                $location.path('/admin');
+                $location.path('/');
             }
         }
         this.isAdmin = function (role) {
@@ -62,6 +62,7 @@ angular.module('HairSmoothieBar.services', [])
                 }).then(function(success) {
                     user = success.data;
                     return success.data;
+                    console.log(user);
                 });
             }
         }

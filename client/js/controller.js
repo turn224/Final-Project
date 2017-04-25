@@ -203,12 +203,24 @@ angular.module('HairSmoothieBar.controllers', [])
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         UserService.me().then(function (success) {
             redirect();
+            console.log(success);
         })
         function redirect() {
             var dest = $location.search().p;
             if (!dest) { dest = '/admin'; }
-            $location.path(dest).search('p', null);
+            $location.search('p', null).path(dest);
         }
+
+        // function redirect() {
+        //     var dest = $location.search().p;
+        //     if (!dest && success.role === 'admin') { dest = '/admin'; }
+        //     else {
+        //         { dest = '/'; }
+        //     }
+        //     $location.path(dest).search('p', null);
+        // }
+
+
         $scope.login = function () {
             UserService.login($scope.email, $scope.password)
                 .then(function () {
