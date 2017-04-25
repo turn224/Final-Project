@@ -79,22 +79,54 @@ body {
         }
     }
 }
-// .footer-distributed {
-//     height: 5em;
-//     background-color: #03A5BA;
-//     color: white;
-//     line-height: 5em;
-//     font-size: 15px;
-//     bottom: 0;
-//     position: fixed;
-//     width: 100%;
+.footer-distributed {
+    height: 5em;
+    background-color: #03A5BA;
+    color: white;
+    line-height: 5em;
+    font-size: 15px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 
-//     a {
-//         color: white;
-//     }
-// }
+    a {
+        color: white;
+    }
+}
 
+.footer-distributed a:before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0px;
+    top: 0px;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
 
+.footer-distributed a:hover:before 
+{
+    height: 100%;
+}
+
+.nav.navbar-nav.navbar-right li a:before {
+   position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0px;
+    top: 0px;
+    content: '';
+    background: #03A5BA;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+.nav.navbar-nav.navbar-right li a:hover:before {
+
+     height: 100%;
+} 
 
 
 @media screen and (max-width: 575px) {
