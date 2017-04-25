@@ -62,6 +62,7 @@ angular.module('HairSmoothieBar.services', [])
                 }).then(function(success) {
                     user = success.data;
                     return success.data;
+                    console.log(user);
                 });
             }
         }

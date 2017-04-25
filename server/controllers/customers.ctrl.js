@@ -70,8 +70,14 @@ router.post('/', auth.isLoggedIn, auth.isAdmin, function (req, res) {
 });
 
 router.get('/me', function (req, res) {
+    // /me should check if req.user exists
+    // if it is, you are logged in and you should res.send req.user
+    // if it is not, you need to send status 401
     res.send(req.user);
-});
+}, function(err) {
+    console.log(err);
+    res.status(401).send(err);
+})
 
 router.get('/:id', function (req, res) {
     return procedures.read(req.params.id).then(function (user) {
