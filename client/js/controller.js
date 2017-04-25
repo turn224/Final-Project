@@ -43,9 +43,6 @@ angular.module('HairSmoothieBar.controllers', [])
         }
     }])
 
-    // .controller('ComposeController', ['$scope', 'Blog', '$location', 'SEOService', function ($scope, Blog, $location, SEOService) {
-
-
     .controller('SingleBlogController', ['$scope', 'Blog', '$location', '$routeParams', 'SEOService', function ($scope, Blog, $location, $routeParams, SEOService) {
         var id = $routeParams.id;
         Blog.get({ id: $routeParams.id }, function (success) {
@@ -175,20 +172,6 @@ angular.module('HairSmoothieBar.controllers', [])
         });
     }])
 
-    .controller('ServiceDetailController', ['$scope', '$location', '$routeParams', 'Services', 'SEOService', function ($scope, $location, $routeParams, Services, SEOService) {
-        Services.get({ id: $routeParams.id }, function (success) {
-            $scope.service = success;
-        }, function (err) {
-            console.log(err);
-        });
-        SEOService.setSEO({
-            title: 'Services',
-            image: 'http://' + $location.host() + '/images/logo.png',
-            url: $location.url(),
-            description: 'Hair Smoothie Bar Services'
-        });
-    }])
-
     .controller('MailingController', ['$scope', '$http', '$location', 'Mailing', 'SEOService', function ($scope, $http, $location, Mailing, SEOService) {
         SEOService.setSEO({
             title: 'Mailing List',
@@ -219,7 +202,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         UserService.me().then(function (success) {
-            // redirect();
+            redirect();
         })
         function redirect() {
             var dest = $location.search().p;
@@ -244,7 +227,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Blog', function ($scope, $location, UserService, SEOService, Blog) {
         UserService.requireLogin(true);
-        UserService.isAdmin($scope.role);
+       
 
         SEOService.setSEO({
             title: 'Compose',
@@ -254,6 +237,7 @@ angular.module('HairSmoothieBar.controllers', [])
         });
 
         $scope.savePost = function () {
+             UserService.isAdmin($scope.role);
             var newPost = new Blog({
                 title: $scope.title,
                 content: $scope.content,

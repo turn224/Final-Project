@@ -1,4 +1,4 @@
-var app = angular.module('HairSmoothieBar', ['ngRoute', 'ngResource', 'ngStorage', 'ngSanitize', 'HairSmoothieBar.controllers', 'HairSmoothieBar.factories', 'HairSmoothieBar.services']);
+var app = angular.module('HairSmoothieBar', ['ngRoute', 'ngResource', 'ngStorage', 'HairSmoothieBar.controllers', 'HairSmoothieBar.factories', 'HairSmoothieBar.services']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
@@ -24,10 +24,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .when('/about', {
             templateUrl: 'views/about.html',
             controller: 'AboutController'
-        })
-        .when('/appointments', {
-            templateUrl: 'views/appointments.html',
-               controller: 'AppointmentsController'
         })
         .when('/blog', {
             templateUrl: 'views/blog.html',
@@ -56,10 +52,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .when('/blog/:id', {
             templateUrl: 'views/singleblog.html',
             controller: 'SingleBlogController'
-        })
-        .when('/services/:id', {
-            templateUrl: 'views/service-detail.html',
-            controller: 'ServiceDetailController'
         })
         .when('/products/:id', {
             templateUrl: 'views/product-detail.html',
