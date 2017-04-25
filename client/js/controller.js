@@ -202,7 +202,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         UserService.me().then(function (success) {
-            redirect();
+            // redirect();
             console.log(success);
         })
         function redirect() {
