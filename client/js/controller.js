@@ -202,7 +202,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         UserService.me().then(function (success) {
-            // redirect();
+            redirect();
         })
         function redirect() {
             var dest = $location.search().p;
@@ -227,7 +227,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Blog', function ($scope, $location, UserService, SEOService, Blog) {
         UserService.requireLogin(true);
-        UserService.isAdmin($scope.role);
+       
 
         SEOService.setSEO({
             title: 'Compose',
@@ -237,6 +237,7 @@ angular.module('HairSmoothieBar.controllers', [])
         });
 
         $scope.savePost = function () {
+             UserService.isAdmin($scope.role);
             var newPost = new Blog({
                 title: $scope.title,
                 content: $scope.content,
