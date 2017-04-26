@@ -42,14 +42,14 @@
 
 <span ng-show="custom">
 <div class="container">
-	<div id="prodCarousel" class="carousel slider" data-ride="carousel" data-wrap="false">
+	<div id="prodCarousel" class="carousel slider" data-ride="carousel" data-wrap="true" data-interval="3000">
 		<div class="carousel-inner products text-center">
 			<div class="item" ng-class="{active:!$index}" ng-repeat="product in products">
 				<a ng-href="/products/{{product.id}}">
 					<img ng-src="{{product.productImg}}" alt="Products" class="img-responsive">
 				</a>
 				<div class="carousel-caption text-center">
-					<h4>{{product.productName}}</h4>
+					<h4 id="h4_name">{{product.productName}}</h4>
 					<h4 id="price">{{product.productPrice | currency}}</h4>
 				</div>
 			</div>
@@ -58,11 +58,11 @@
 
 
 	<!-- Left and right controls -->
-	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	<a class="left carousel-control" href="#prodCarousel" data-slide="prev">
 		<span class="glyphicon glyphicon-chevron-left"></span>
 <span class="sr-only">Previous</span>
 </a>
-<a class="right carousel-control" href="#myCarousel" data-slide="next">
+<a class="right carousel-control" href="#prodCarousel" data-slide="next">
 	<span class="glyphicon glyphicon-chevron-right"></span>
 	<span class="sr-only">Next</span>
 </a>
