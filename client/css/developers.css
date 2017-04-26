@@ -1,0 +1,20 @@
+.img-box ul li {
+  width: 2.5em;
+  height: 2.5em;
+  text-align: center;
+  margin: 0.1em;
+  display: inline-block;
+}
+.fa {
+  text-decoration: none;
+  color: black;
+}
+.socialLinks {
+  margin-left: -40px;
+}
+.img-box img {
+  border-radius: 50%;
+}
+.head_dev {
+  color: #03A5BA;
+}

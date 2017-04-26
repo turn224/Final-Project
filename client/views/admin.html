@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6 col-md-offset-3 admin">
-            <h1>Write A Blog Post</h1>
+            <h1 class="h1_admin">Write A Blog Post</h1>
             <div class="container-fluid newpost-page">
                 <div>
-                    Title: <br>
+                    Blog Title: <br>
                     <input type="text" ng-model="title" placeholder="Put your Title here!">
                 </div>
                 <div>
@@ -12,7 +12,7 @@
                     <textarea ng-model="content"></textarea>
                 </div>
                 <div>
-                    <button ng-click="savePost()">Post</button>
+                    <button class="btn btn-info" ng-click="savePost()">Post</button>
                 </div>
             </div>
         </div>
@@ -20,20 +20,20 @@
     <hr>
     <div class="row">
         <div class="col-md-offset 3 col-md-6 col-md-offset-3">
-            <h1>See Appointment Calendar</h1>
+            <h1 class="h1_admin">See Appointment Calendar</h1>
             <h3><a href="https://my.setmore.com/">Setmore</a></h3>
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-            <h1>Check Your Stripe Account</h1>
+            <h1 class="h1_admin">Check Your Stripe Account</h1>
             <h3><a href="https://stripe.com/">Stripe</a></h3>
         </div>
     </div>
     <div class="row">
         <div class="col-md-offset-3 col md-6 col-md-offset-3">
-            <button ng-click="logout()">LOGOUT</button>
+            <button class="btn btn-info" id="logout" ng-click="logout()">Logout</button>
         </div>
     </div>
 </div>
