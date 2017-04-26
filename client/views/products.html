@@ -11,9 +11,16 @@
 	</div>
 </div>
 
+<span ng-show="custom">
 <div class="text-center">
 <button class="btn btn-info" ng-click="custom=!custom">Show All</button>
 </div>
+</span>
+<span ng-hide="custom">
+	<div class="text-center">
+	<button class="btn btn-info" ng-click="custom=!custom">Show Slider</button>
+	</div>
+</span>
 
 <span ng-hide="custom">
 <div class="container">
