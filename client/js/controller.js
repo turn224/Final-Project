@@ -125,6 +125,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
     .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', function ($scope, $location, Products, SEOService) {
         $scope.products = Products.query();
+        $scope.custom = true;
         SEOService.setSEO({
             title: 'Products',
             image: 'http://' + $location.host() + '/images/logo.png',
