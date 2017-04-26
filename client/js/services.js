@@ -38,7 +38,7 @@ angular.module('HairSmoothieBar.services', [])
         this.login = function (email, password) {
             return $http({
                 method: 'POST',
-                url: 'http://localhost:3000/api/customers/login',
+                url: '/api/customers/login',
                 data: { email, password }
             }).then(function (success) { console.log(success);
                 user = success.data;
@@ -48,7 +48,7 @@ angular.module('HairSmoothieBar.services', [])
         this.logout = function () {
             return $http({
                 method: 'GET',
-                url: 'http://localhost:3000/api/customers/logout'
+                url: '/api/customers/logout'
             }).then(function (success) {
                 user = undefined;
             });
@@ -58,7 +58,7 @@ angular.module('HairSmoothieBar.services', [])
             else {
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:3000/api/customers/me'
+                    url: '/api/customers/me'
                 }).then(function(success) {
                     user = success.data;
                     return success.data;

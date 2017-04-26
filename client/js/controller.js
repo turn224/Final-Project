@@ -98,7 +98,7 @@ angular.module('HairSmoothieBar.controllers', [])
                     var stripetransactionid = response.id;
                     $http({
                         method: "POST",
-                        url: "http://localhost:3000/api/purchases",
+                        url: "/api/purchases",
                         data: {
                             stripetransactionid: stripetransactionid,
                             total: $scope.total,
