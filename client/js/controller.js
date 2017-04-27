@@ -197,6 +197,7 @@ angular.module('HairSmoothieBar.controllers', [])
                 content: 'Thank you for joining our mailing list.  Stay tuned for exciting information about Hair Smoothie Bar'
             })
             contact.$save(function (success) {
+                alert('Thank you for joining our mailing list');
                 $location.path('/about');
             });
         }
