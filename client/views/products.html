@@ -42,11 +42,11 @@
 
 <span ng-show="custom">
 <div class="container">
-	<div id="prodCarousel" class="carousel slider" data-ride="carousel" data-wrap="true" data-interval="3000">
+	<div id="prodCarousel" class="carousel slider" data-ride="carousel" data-wrap="true" carousel interval="myInterval">
 		<div class="carousel-inner products text-center">
 			<div class="item" ng-class="{active:!$index}" ng-repeat="product in products">
 				<a ng-href="/products/{{product.id}}">
-					<img ng-src="{{product.productImg}}" alt="Products" class="img-responsive">
+					<img ng-src="{{product.productImg}}" alt="{{product.productName}}" class="img-responsive">
 				</a>
 				<div class="carousel-caption text-center">
 					<h4 id="h4_name">{{product.productName}}</h4>
