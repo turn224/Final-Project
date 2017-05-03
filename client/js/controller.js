@@ -61,6 +61,7 @@ angular.module('HairSmoothieBar.controllers', [])
     .controller('CheckoutController', ['$scope', '$location', '$http', 'SEOService', 'ShopCart', '$rootScope', '$localStorage', function ($scope, $location, $http, SEOService, ShopCart, $rootScope, $localStorage) {
         $scope.items = ShopCart.loadCart();
         $scope.cart = ShopCart.getCart();
+        console.log($scope.cart);
         $scope.total = ShopCart.totalCart();
         $scope.count = ShopCart.countCart();
         $scope.shipping = 15;
@@ -68,7 +69,7 @@ angular.module('HairSmoothieBar.controllers', [])
 
          $scope.products = [];
         angular.forEach($scope.cart, function(value, key){
-            $scope.products.push(value.productName);
+            $scope.products.push(value.productName, value.qty);
         });
 
         SEOService.setSEO({
@@ -123,8 +124,10 @@ angular.module('HairSmoothieBar.controllers', [])
         }
     }])
 
-    .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', function ($scope, $location, Products, SEOService) {
+    .controller('ProductsController', ['$scope', '$location', 'Products', 'SEOService', 'ShopCart', function ($scope, $location, Products, SEOService, ShopCart) {
         $scope.products = Products.query();
+        $scope.items = ShopCart.loadCart();
+        $scope.cart = ShopCart.getCart();
         $scope.custom = true;
         SEOService.setSEO({
             title: 'Products',

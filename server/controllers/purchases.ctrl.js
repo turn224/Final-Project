@@ -17,8 +17,8 @@ router.route('/')
     });
 router.post('/', function (req, res) { // /api/purchases
     var amount = Number(req.body.total) * 100;
-    stripeSvc.charge(req.body.stripetransactionid, amount)
     procedures.write(req.body.total, req.body.custName, req.body.productName)
+    stripeSvc.charge(req.body.stripetransactionid, amount)
         .then(function (success) {
             eSvc.sendEmail('fm_lewis@bellsouth.net', req.body.subject, 'fm_lewis@bellsouth.net', req.body.content)
             res.sendStatus(204);
