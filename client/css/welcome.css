@@ -24,7 +24,7 @@
   transform: translateY(-100%);
 }
 .carousel .item {
-  min-height: 750px;
+  
   height: 100%;
   width: 100%;
 }
