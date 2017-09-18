@@ -1,17 +1,19 @@
 angular.module('HairSmoothieBar.controllers', [])
     .controller('WelcomeController', ['$scope', '$http', '$location', 'SEOService', function ($scope, $http, $location, SEOService) {
+       SEOService.setSEO({
+            title: 'Hair Smoothie Bar',
+            image: 'http://' + $location.host() + '/images/logo.png',
+            url: $location.url(),
+            description: 'Hair Smoothie Bar'
+        });
+       
         $scope.goToShop = function () {
             $location.path('/products');
         }
         $scope.goToLogin = function () {
             $location.path('/login');
         }
-        SEOService.setSEO({
-            title: 'Hair Smoothie Bar',
-            image: 'http://' + $location.host() + '/images/logo.png',
-            url: $location.url(),
-            description: 'Hair Smoothie Bar'
-        });
+        
 
     }])
 

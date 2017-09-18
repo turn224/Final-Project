@@ -1,3 +1,4 @@
+
 <div class="blog-header">
 	<div class="row">
 		<div class="product-hero jumbotron">
@@ -44,14 +45,15 @@
 <div class="container">
 	<div id="prodCarousel" class="carousel slider" data-ride="carousel" data-wrap="true" carousel interval="myInterval">
 		<div class="carousel-inner products text-center">
-			<div class="item" ng-class="{active:!$index}" ng-repeat="product in products">
+			<div class="item" id="carousel-box" ng-class="{active:!$index}" ng-repeat="product in products">
 				<a ng-href="/products/{{product.id}}">
 					<img ng-src="{{product.productImg}}" alt="{{product.productName}}" class="img-responsive">
-				</a>
-				<div class="carousel-caption text-center">
+					<!-- <div class="carousel-caption text-center"> -->
 					<h4 id="h4_name">{{product.productName}}</h4>
 					<h4 id="price">{{product.productPrice | currency}}</h4>
-				</div>
+				<!-- </div> -->
+				</a>
+				
 			</div>
 		</div>
 	</div>
